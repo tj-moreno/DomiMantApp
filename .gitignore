@@ -123,3 +123,10 @@ DomiMantApp/DomiMantApp/DomiMantApp/obj/DomiMantApp.csproj.nuget.dgspec.json
 DomiMantApp/DomiMantApp/DomiMantApp/obj/DomiMantApp.csproj.nuget.g.props
 DomiMantApp/DomiMantApp/DomiMantApp/obj/DomiMantApp.csproj.nuget.g.targets
 DomiMantApp/DomiMantApp/DomiMantApp/obj/project.assets.json
+*.stamp
+*.aidl
+*.jar
+*.props
+*.ide-wal
+*.ide-shm
+*.txt

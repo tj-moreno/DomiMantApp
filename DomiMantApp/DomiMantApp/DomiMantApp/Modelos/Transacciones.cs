@@ -1,10 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace DomiMantApp.Modelos
 {
-    class Transacciones
+    using System;
+
+    public class Transacciones
     {
+        public int ID { get; set; }
+        public string NumeroTransaccion { get; set; }
+        public string ClienteID { get; set; }
+        public DateTime Feche { get; set; }
+        public string observaciones { get; set; }
     }
 }
