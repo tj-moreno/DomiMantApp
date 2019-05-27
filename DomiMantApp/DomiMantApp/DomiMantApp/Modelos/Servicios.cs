@@ -2,7 +2,7 @@
 namespace DomiMantApp.Modelos
 {
     using System;
-    public class Servicios
+    public class Servicios:ModeloBase
     {
         public string Codigo { get; set; }
         public string Descripcion { get; set; }

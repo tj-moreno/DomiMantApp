@@ -1,7 +1,7 @@
 ﻿
 namespace DomiMantApp.Modelos
 {
-    public class Registro
+    public class Registro:ModeloBase
     {
         public string Codigo { get; set; }
         public string Nombres { get; set; }

@@ -1,7 +1,7 @@
 ﻿
 namespace DomiMantApp.Modelos
 {    
-    public class Vehiculos
+    public class Vehiculos:ModeloBase
     {
         public string UsuarioID { get; set; }
         public string VehiculoID { get; set; }

@@ -1,7 +1,7 @@
 ﻿
 namespace DomiMantApp.Modelos
 {
-    public class Direccion_Contactos
+    public class Direccion_Contactos:ModeloBase
     {
         public string UsuarioID { get; set; }
         public string Longitud { get; set; }

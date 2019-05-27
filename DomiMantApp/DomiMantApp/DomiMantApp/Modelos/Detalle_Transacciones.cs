@@ -4,9 +4,8 @@
 namespace DomiMantApp.Modelos
 {
     using System;
-    public class Detalle_Transacciones
-    {
-        public int ID { get; set; }
+    public class Detalle_Transacciones:ModeloBase
+    {        
         public string VehiculoID { get; set; }
         public string ServicioID { get; set; }
         public string Descripcion { get; set; }

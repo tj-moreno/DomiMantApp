@@ -3,7 +3,7 @@ namespace DomiMantApp.Modelos
 {
     using System;
 
-    public class Usuarios
+    public class Usuarios:ModeloBase
     {
         public string Codigo { get; set; }
         public string Nombres { get; set; }
