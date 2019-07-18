@@ -1,8 +1,9 @@
 ﻿
 namespace DomiMantApp.Repositorios
 {
-    using System.Collections.Generic;
-    public interface IRepositorio<T>
+    using System;
+    using System.Collections.Generic;    
+    public interface IRepositorio<T>:IDisposable
     {
         void Agregar(T entidad);
         void Eliminar(T entidad);

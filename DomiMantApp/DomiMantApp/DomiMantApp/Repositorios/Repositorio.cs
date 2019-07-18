@@ -8,7 +8,7 @@ namespace DomiMantApp.Repositorios
     using DomiMantApp.Modelos;
     using SQLite;
 
-    public class Repositorio<T> : IRepositorio<T> where T : ModeloBase, new()
+    public class Repositorio<T> :IRepositorio<T> where T:ModeloBase, new()
     {
         public string DBpaht;
         public Repositorio(string dbpaht)
@@ -50,7 +50,7 @@ namespace DomiMantApp.Repositorios
             {
                 return _cn.Table<T>().Where(criterio).ToList();
             }
-        }
+        }        
 
         public void Eliminar(T entidad)
         {
@@ -65,13 +65,16 @@ namespace DomiMantApp.Repositorios
             using (var _cn= new SQLiteConnection(DBpaht))
             {
                 var view = _cn.Table<T>().FirstOrDefault(t => t.ID.Equals(id));
-                if (view!=null)
-                {
-                    return view;
-                }
+                if (view!=null)                
+                    return view;                
 
                 return null;
             }
+        }
+
+        public void Dispose()
+        {            
+            GC.SuppressFinalize(this);
         }
     }
 }
