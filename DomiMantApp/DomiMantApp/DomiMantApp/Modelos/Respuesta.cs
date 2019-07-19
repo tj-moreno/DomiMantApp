@@ -1,4 +1,6 @@
 ﻿
+using System.Collections;
+
 namespace DomiMantApp.Modelos
 {
     public class Respuesta

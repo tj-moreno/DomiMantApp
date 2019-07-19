@@ -243,7 +243,7 @@ namespace DomiMantApp.VistasModelos
                         };
 
                         repo.Actualizar(Usuario);
-                        break;
+                        break;                        
                 }
             }                        
         }

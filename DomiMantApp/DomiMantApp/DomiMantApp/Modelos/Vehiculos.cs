@@ -11,4 +11,26 @@ namespace DomiMantApp.Modelos
         public string Placa { get; set; }
         public int  PlazoMantenimientos { get; set; }        
     }
+
+    public class VehiculosView : Vehiculos
+    {
+        public string NombreVehiculo {
+            get {
+                return $"{Marca} {Modelo} {Anio}";
+            }
+            set {
+                value.ToString();
+            }
+        }
+
+        public string Mantenimiento {
+            get {
+                return $"Restan {PlazoMantenimientos} KM";
+            }
+            set {
+                value.ToString();
+            }
+        }
+
+    }
 }
