@@ -25,7 +25,7 @@ namespace DomiMantApp.Modelos
 
         public string Mantenimiento {
             get {
-                return $"Restan {PlazoMantenimientos} KM";
+                return $"Restan {PlazoMantenimientos} Dias";
             }
             set {
                 value.ToString();

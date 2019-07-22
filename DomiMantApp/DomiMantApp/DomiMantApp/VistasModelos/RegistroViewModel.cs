@@ -44,6 +44,10 @@ namespace DomiMantApp.VistasModelos
         private bool verfecha;
         private bool vercedula;
         private bool verbtnborrarcuenta;
+        private bool verclientes;
+        private bool verdirecciones;
+        private bool verservicios;
+        private bool vervehiculos;
         #endregion
 
         #region Propiedades

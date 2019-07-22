@@ -80,6 +80,12 @@ namespace DomiMantApp.VistasModelos
             }
         }
 
+        public ICommand CancelarCommand {
+            get {
+                return new RelayCommand(Cancelar);
+            }
+        }        
+
         public ICommand BorrarServicio {
             get {
                 return new RelayCommand(Eliminar);
@@ -120,19 +126,22 @@ namespace DomiMantApp.VistasModelos
                             repositorio.Actualizar(servicios);
                             break;                        
                     }
-
                     repositorio.Dispose();
                 }
             }
             catch (Exception ex)
             {
                 App.Current.MainPage.DisplayAlert(
-                    $"Error al {Acciones}",
+                    $"Error al {Acciones.ToString()}",
                     $"Descripcion:\n{ex.Message}",
-                    "Ok"
-                    );
+                    "Ok");
             }
-        }        
+        }
+
+        private void Cancelar()
+        {
+            throw new NotImplementedException();
+        }
 
         private async void Eliminar()
         {
@@ -150,7 +159,6 @@ namespace DomiMantApp.VistasModelos
                 using (var repo= new Repositorio<Servicios>(GetDbPath()))
                 {
                     repo.Eliminar(servicios);
-
                     repo.Dispose();
                 }
             }

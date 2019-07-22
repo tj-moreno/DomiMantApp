@@ -10,4 +10,32 @@ namespace DomiMantApp.Modelos
         public string NombreContacto { get; set; }
         public string Telefono { get; set; }
     }
+
+    public class Direcciones : Direccion_Contactos
+    {
+        public string Direccion {
+            get {
+                return Descripcion;
+            }
+            set {
+                value.ToString();
+            }
+        }
+        public string Contacto {
+            get {
+                return NombreContacto;
+            }
+            set {
+                value.ToString();
+            }
+        }
+        public string DireccionTelefono {
+            get {
+                return Telefono;
+            }
+            set {
+                value.ToString();
+            }
+        }
+    }
 }

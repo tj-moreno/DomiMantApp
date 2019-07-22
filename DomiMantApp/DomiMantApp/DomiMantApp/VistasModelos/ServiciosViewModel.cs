@@ -6,50 +6,59 @@ namespace DomiMantApp.VistasModelos
     using GalaSoft.MvvmLight.Command;
     using System;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Text;
+    using System.Collections.ObjectModel;    
     using System.Windows.Input;
 
-    public class VehiculosViewModel : ModeradorBase
+    public class ServiciosViewModel : ModeradorBase
     {
         #region Constructor
-        public VehiculosViewModel()
+        public ServiciosViewModel()
         {
 
         }
         #endregion
 
-        #region Atributos
-        private string nombrevehiculo;
-        private string mantenimiento;
-        private ObservableCollection<VehiculosItemsViewModel> vehiculos;
+        #region Atributo
+        private string mostrardescripcion;
+        private string mostrarprecio;
+        private string mostrargarantia;
+        private ObservableCollection<ServiciosItemsViewModel> _servicios;
+        private List<Servicios> lstservicios;
         private bool actualizando;
-        private List<Vehiculos> listadovehiculos;
         #endregion
 
         #region Propiedades
-        public string NombreVehiculo {
+        public string MostrarDescripcion {
             get {
-                return this.nombrevehiculo;
+                return this.mostrardescripcion;
             }
             set {
-                PasarValor(ref this.nombrevehiculo, value);
+                PasarValor(ref this.mostrardescripcion, value);
+
             }
         }
-        public string Mantenimiento {
+        public string MostrarPrecio {
             get {
-                return this.mantenimiento;
+                return this.mostrarprecio;
             }
             set {
-                PasarValor(ref this.mantenimiento, value);
+                PasarValor(ref this.mostrarprecio, value);
             }
         }
-        public ObservableCollection<VehiculosItemsViewModel> Vehiculos {
+        public string MostrarGarantia {
             get {
-                return this.vehiculos;
+                return this.mostrargarantia;
             }
             set {
-                PasarValor(ref this.vehiculos, value);
+                PasarValor(ref this.mostrargarantia, value);
+            }
+        }
+        public ObservableCollection<ServiciosItemsViewModel> Servicios {
+            get {
+                return this._servicios;
+            }
+            set {
+                PasarValor(ref this._servicios, value);
             }
         }
         public bool Actualizando {
@@ -69,15 +78,15 @@ namespace DomiMantApp.VistasModelos
             }
         }
 
-        public ICommand ActualizarCommand {
+        public ICommand ActualizandoCommand {
             get {
                 return new RelayCommand(Actualizar);
             }
         }
 
-        public ICommand AgregarNuevoCommand {
+        public ICommand AgregarServicio {
             get {
-                return new RelayCommand(Nuevo);
+                return new RelayCommand(Agregar);
             }
         }        
         #endregion
@@ -93,7 +102,7 @@ namespace DomiMantApp.VistasModelos
             throw new NotImplementedException();
         }
 
-        private void Nuevo()
+        private void Agregar()
         {
             throw new NotImplementedException();
         }

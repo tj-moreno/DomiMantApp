@@ -6,50 +6,51 @@ namespace DomiMantApp.VistasModelos
     using GalaSoft.MvvmLight.Command;
     using System;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Text;
+    using System.Collections.ObjectModel;    
     using System.Windows.Input;
 
-    public class VehiculosViewModel : ModeradorBase
+    public class DireccionesViewModel : ModeradorBase
     {
         #region Constructor
-        public VehiculosViewModel()
+        public DireccionesViewModel()
         {
 
         }
         #endregion
 
         #region Atributos
-        private string nombrevehiculo;
-        private string mantenimiento;
-        private ObservableCollection<VehiculosItemsViewModel> vehiculos;
+        private string direccion;
+        private string contacto;
+        private string telefono;
+        private ObservableCollection<DireccionesItemViewModel> _direcciones;
+        private List<Direccion_Contactos> lstdireccion;
         private bool actualizando;
-        private List<Vehiculos> listadovehiculos;
         #endregion
 
         #region Propiedades
-        public string NombreVehiculo {
+        public string Direccion {
             get {
-                return this.nombrevehiculo;
+                return this.direccion;
             }
             set {
-                PasarValor(ref this.nombrevehiculo, value);
+                PasarValor(ref this.direccion, value);
             }
         }
-        public string Mantenimiento {
+        public string Contacto {
             get {
-                return this.mantenimiento;
+                return this.contacto;
             }
             set {
-                PasarValor(ref this.mantenimiento, value);
+                PasarValor(ref this.contacto, value);
             }
         }
-        public ObservableCollection<VehiculosItemsViewModel> Vehiculos {
+        public string Telefono {
             get {
-                return this.vehiculos;
+                return this.telefono;
             }
             set {
-                PasarValor(ref this.vehiculos, value);
+                PasarValor(ref this.telefono, value);
+
             }
         }
         public bool Actualizando {
@@ -60,6 +61,14 @@ namespace DomiMantApp.VistasModelos
                 PasarValor(ref this.actualizando, value);
             }
         }
+        public ObservableCollection<DireccionesItemViewModel> Direcciones {
+            get {
+                return this._direcciones;
+            }
+            set {
+                PasarValor(ref this._direcciones, value);
+            }
+        }
         #endregion
 
         #region Comandos
@@ -68,16 +77,14 @@ namespace DomiMantApp.VistasModelos
                 return new RelayCommand(Buscar);
             }
         }
-
         public ICommand ActualizarCommand {
             get {
                 return new RelayCommand(Actualizar);
             }
         }
-
-        public ICommand AgregarNuevoCommand {
+        public ICommand AgregarCommand {
             get {
-                return new RelayCommand(Nuevo);
+                return new RelayCommand(NuevaDireccion);
             }
         }        
         #endregion
@@ -87,13 +94,11 @@ namespace DomiMantApp.VistasModelos
         {
             throw new NotImplementedException();
         }
-
         private void Actualizar()
         {
             throw new NotImplementedException();
         }
-
-        private void Nuevo()
+        private void NuevaDireccion()
         {
             throw new NotImplementedException();
         }
