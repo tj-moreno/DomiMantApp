@@ -26,9 +26,8 @@ namespace DomiMantApp.VistasModelos
             {
                 MostrarControlesOpcionales(false);
             }
-        }       
+        }
         #endregion
-
         #region Atributos
         private int id;
         private string codigo;
@@ -49,7 +48,6 @@ namespace DomiMantApp.VistasModelos
         private bool verservicios;
         private bool vervehiculos;
         #endregion
-
         #region Propiedades
         public int ID {
             get {
@@ -89,7 +87,6 @@ namespace DomiMantApp.VistasModelos
             }
             set {
                 PasarValor(ref this.emails, value);
-
             }
         }
         public string Contrasena {
@@ -106,7 +103,6 @@ namespace DomiMantApp.VistasModelos
             }
             set {
                 PasarValor(ref tipo, value);
-
             }
         }
         public DateTime FechaNacimiento {
@@ -142,14 +138,13 @@ namespace DomiMantApp.VistasModelos
             }
         }
         public bool VerCedula {
-
             get {
                 return this.vercedula;
             }
             set {
                 PasarValor(ref this.vercedula, value);
             }
-        }        
+        }
         public bool VerBtnBorrarCuenta {
             get {
                 return this.verbtnborrarcuenta;
@@ -189,9 +184,8 @@ namespace DomiMantApp.VistasModelos
             set {
                 PasarValor(ref this.verservicios, value);
             }
-        }        
-        #endregion
-
+        }
+        #endregion    
         #region Comandos
         public ICommand btnGuardar {
             get {
@@ -207,9 +201,8 @@ namespace DomiMantApp.VistasModelos
             get {
                 return new RelayCommand(Cancelar);
             }
-        }        
+        }
         #endregion
-
         #region Metodos
         private void GuardarRegistro()
         {
@@ -247,7 +240,7 @@ namespace DomiMantApp.VistasModelos
                         };
 
                         repo.Actualizar(Usuario);
-                        break;                        
+                        break;
                 }
             }                        
         }
@@ -270,12 +263,35 @@ namespace DomiMantApp.VistasModelos
         {
             VerFecha = value;
             VerCedula = value;
-            VerBtnBorrarCuenta = value;            
+            VerBtnBorrarCuenta = value;
         }
 
-        private void EliminarCuenta()
+        private async void EliminarCuenta()
         {
-            
+            try
+            {
+                var Autorizado = await App.Current.MainPage.DisplayAlert(
+                    "Cuenta",
+                    $"Seguro que desea eliminar la cuenta {Codigo}?",
+                    "Si",
+                    "No");
+
+                if (!Autorizado)
+                    return;
+
+                using (var repo = new Repositorio<Usuarios>(GetDbPath()))
+                {
+                    repo.Eliminar(Usuario);
+                    repo.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                await App.Current.MainPage.DisplayAlert(
+                    "Cuenta",
+                    $"Error al intentar eliminar la cuenta {Codigo}\nDescripción del Error: {ex.Message}",
+                    "Ok");
+            }
         }
 
         private void Cancelar()
