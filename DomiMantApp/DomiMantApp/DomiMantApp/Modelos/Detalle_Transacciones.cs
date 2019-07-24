@@ -17,6 +17,23 @@ namespace DomiMantApp.Modelos
 
     public class DetalleTransaccion:Detalle_Transaccion
     {
+        public string Vehiculo { get; set; }
+        public string Descrip {
+            get {
+                return Descripcion;
 
+            }
+            set {
+                value.ToString();
+            }
+        }
+        public string GarantiaHasta {
+            get {
+                return FinGarantia.ToString("dd/MM/yyyy");
+            }
+            set {
+                value.ToString();
+            }
+        }
     }
 }

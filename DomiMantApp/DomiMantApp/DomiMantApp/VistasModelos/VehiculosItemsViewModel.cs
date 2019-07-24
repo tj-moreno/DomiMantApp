@@ -12,7 +12,6 @@ namespace DomiMantApp.VistasModelos
 
         }
         #endregion
-
         #region Comandos
         public ICommand SeleccionVehiculo {
             get {
@@ -20,7 +19,6 @@ namespace DomiMantApp.VistasModelos
             }
         }
         #endregion
-
         #region Metodos
         private void Seleccion()
         {

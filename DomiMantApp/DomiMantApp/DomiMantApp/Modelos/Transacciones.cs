@@ -9,7 +9,7 @@ namespace DomiMantApp.Modelos
         public string NumeroTransaccion { get; set; }
         public string ClienteID { get; set; }
         public string SuplidorID { get; set; }
-        public DateTime Feche { get; set; }
+        public DateTime Fecha { get; set; }
         public string Observaciones { get; set; }
     }
 
@@ -25,7 +25,7 @@ namespace DomiMantApp.Modelos
         }
         public string Fecha {
             get {
-                return this.Feche.ToString("dd/MM/yyyy");
+                return this.Fecha.ToString("dd/MM/yyyy");
             }
             set {
                 value.ToString();
