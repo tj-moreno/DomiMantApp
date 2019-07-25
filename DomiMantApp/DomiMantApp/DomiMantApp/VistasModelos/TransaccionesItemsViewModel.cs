@@ -6,7 +6,7 @@ namespace DomiMantApp.VistasModelos
     using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
 
-    public class TransaccionesItemsViewModel : DetalleTransaccion
+    public class TransaccionesItemsViewModel : Transacciones
     {
         #region Constructor
         public TransaccionesItemsViewModel()

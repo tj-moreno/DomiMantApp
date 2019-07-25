@@ -28,7 +28,7 @@ namespace DomiMantApp.VistasModelos
         private string observaciones;
         private Trans trans;
         private Detalle_Transaccion detalle;        
-        private ObservableCollection<TransaccionesItemsViewModel> transdetail;
+        private ObservableCollection<TransDetailItemsViewModel> transdetail;
         #endregion
         #region Propiedades
         public string NumeroTransaccion {
@@ -46,6 +46,7 @@ namespace DomiMantApp.VistasModelos
             }
             set {
                 PasarValor(ref this.clienteid, value);
+                NumeroTransaccion = GenerarNumeroTrans();
             }
 
         }
@@ -73,7 +74,7 @@ namespace DomiMantApp.VistasModelos
                 PasarValor(ref this.observaciones, value);
             }
         }
-        public ObservableCollection<TransaccionesItemsViewModel> TransDetail {
+        public ObservableCollection<TransDetailItemsViewModel> TransDetail {
             get {
                 return this.transdetail;
             }
@@ -215,7 +216,7 @@ namespace DomiMantApp.VistasModelos
                 this.Fecha = trans.Fecha;
                 this.NumeroTransaccion = trans.NumeroTransaccion;
                 this.Observaciones = trans.Observaciones;
-                this.TransDetail = new ObservableCollection<TransaccionesItemsViewModel>(this.ToTransDetailItemsViewModel());
+                this.TransDetail = new ObservableCollection<TransDetailItemsViewModel>(this.ToTransDetailItemsViewModel());
             }
             catch (Exception ex)
             {
@@ -225,8 +226,8 @@ namespace DomiMantApp.VistasModelos
                     "Ok");
             }
         }
-        private IEnumerable<TransaccionesItemsViewModel> ToTransDetailItemsViewModel() {
-            return this.trans.DetalleTransaccion.Select(t => new TransaccionesItemsViewModel() {
+        private IEnumerable<TransDetailItemsViewModel> ToTransDetailItemsViewModel() {
+            return this.trans.DetalleTransaccion.Select(t => new TransDetailItemsViewModel() {
                 ID=t.ID,
                 TransID=t.TransID,
                 VehiculoID=t.VehiculoID,
@@ -236,6 +237,18 @@ namespace DomiMantApp.VistasModelos
                 Precio=t.Precio,
                 FinGarantia=t.FinGarantia
             });
+        }
+        private string GenerarNumeroTrans()
+        {
+            int Numero = 0;
+            var prefix = "FS" + ClientesID.Substring(0, 2).ToUpper();
+
+            using (var RepoMaster = new Repositorio<Transaccion>(GetDbPath()))
+            {
+                Numero = ((List<Transaccion>)RepoMaster.Buscar(t => t.NumeroTransaccion.Contains(prefix) && t.SuplidorID.Equals(trans.SuplidorID))).Count();
+                RepoMaster.Dispose();
+            }
+            return $"{prefix}{(Numero += 1).ToString().PadLeft(10 - prefix.Length, char.Parse("0"))}";
         }
         #endregion
     }

@@ -23,7 +23,7 @@ namespace DomiMantApp.Modelos
                 value.ToString();
             }
         }
-        public string Fecha {
+        public string FechaDoc {
             get {
                 return this.Fecha.ToString("dd/MM/yyyy");
             }

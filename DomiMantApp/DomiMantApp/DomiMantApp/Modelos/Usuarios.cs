@@ -24,7 +24,7 @@ namespace DomiMantApp.Modelos
         public List<Clientes> Clientes { get; set; }
     }
 
-    public class Clients : Usuarios
+    public class Cliente : Usuarios
     {
         public List<Vehiculos> Vehiculos { get; set; }
         public List<Direccion_Contactos> Direcciones { get; set; }
