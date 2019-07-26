@@ -106,13 +106,13 @@ namespace DomiMantApp.VistasModelos
         }
         private void Actualizar()
         {
-            
+            CargarTransacciones();
         }
         private void Agregar()
         {
             
         }
-        private void CargarTransacciones()
+        private async void CargarTransacciones()
         {
             try
             {
@@ -129,7 +129,10 @@ namespace DomiMantApp.VistasModelos
             }
             catch (Exception ex)
             {
-                
+                await App.Current.MainPage.DisplayAlert(
+                    "Transacciones",
+                    $"Error catgando las Transacciones\nDetalle del Error : {ex.Message}.",
+                    "Ok");
             }
         }
         private IEnumerable<TransaccionesItemsViewModel> ToTransaccionesItemsViewModel()

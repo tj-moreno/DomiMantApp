@@ -30,7 +30,6 @@ namespace DomiMantApp.VistasModelos
         private DateTime fingarantia;
         private string total;
         private Detalle_Transaccion detalle;
-
         #endregion
         #region Propiedades
         public int TransID {
