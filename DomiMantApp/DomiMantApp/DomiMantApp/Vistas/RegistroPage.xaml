@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DomiMantApp.Vistas.RegistroPage"
+             BindingContext="{Binding Main, Source={StaticResource Localizador}}"
+             Title="Registro">
+    <ContentPage.Content>
+        <ScrollView
+            BindingContext="{Binding Registro}">
+            <StackLayout
+                Padding="5"
+                Orientation="Vertical">
+                <Label
+                    FontAttributes="Bold"
+                    Text="Código :"
+                    HorizontalOptions="StartAndExpand"/>
+                <Entry
+                    Placeholder="Código..."
+                    Text="{Binding Codigo, Mode=TwoWay}"
+                    IsEnabled="False"
+                    MaxLength="11"/>
+                <Label
+                    FontAttributes="Bold"
+                    Text="Nombres :"
+                    HorizontalOptions="StartAndExpand"/>
+                <Entry
+                    Placeholder="Nombres..."
+                    Text="{Binding Nombres, Mode=TwoWay}"/>
+                <Label
+                    FontAttributes="Bold"
+                    Text="Apellidos :"/>
+                <Entry
+                    Text="{Binding Apellidos, Mode=TwoWay}"
+                    Placeholder="Apellidos..."/>
+                <Label
+                    FontAttributes="Bold"
+                    Text="Cédula :"
+                    IsVisible="{Binding VerCedula, Mode=TwoWay}"/>
+                <Entry
+                    Text="{Binding Cedula, Mode=TwoWay}"
+                    Placeholder="000-0000000-0"
+                    IsVisible="{Binding VerCedula, Mode=TwoWay}"/>
+                <Label
+                    FontAttributes="Bold"
+                    Text="Correo Electronico :"/>
+                <Entry
+                    Text="{Binding Emails, Mode=TwoWay}"
+                    Placeholder="jperez@correo.com.do"/>
+                <Label
+                    FontAttributes="Bold"
+                    Text="Contraseña :"/>
+                <Entry
+                    Text="{Binding Contrasena, Mode=TwoWay}"
+                    Placeholder="Contraseña..."
+                    IsPassword="True"/>
+                <Label
+                    FontAttributes="Bold"
+                    Text="Confirmar Contraseña :"/>
+                <Entry
+                    Text="{Binding ConfirmarContrasena, Mode=TwoWay}"
+                    Placeholder="Confirmar..."
+                    IsPassword="True"/>
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

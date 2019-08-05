@@ -17,7 +17,7 @@ namespace DomiMantApp.VistasModelos
         #region Constructor
         public TransaccionViewModel()
         {
-
+            CargarTransaccion();
         }
         #endregion
         #region Atributos
@@ -27,7 +27,7 @@ namespace DomiMantApp.VistasModelos
         private DateTime fecha;
         private string observaciones;
         private Trans trans;
-        private Detalle_Transaccion detalle;        
+        private Detalle_Transaccion detalle;
         private ObservableCollection<TransDetailItemsViewModel> transdetail;
         #endregion
         #region Propiedades

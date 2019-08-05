@@ -18,7 +18,6 @@ namespace DomiMantApp.VistasModelos
             this.vehiculos = _vehiculos;
         }
         #endregion
-
         #region Atributos
         private string usuarioid;
         private string vehiculoid;
@@ -27,11 +26,9 @@ namespace DomiMantApp.VistasModelos
         private int anio;
         private string placa;
         private int plazomantenimientos;
-        private bool verusuarioid;
-
+        //private bool verusuarioid;
         private Vehiculos vehiculos;
         #endregion
-
         #region Propiedades
         public string UsuarioID {
             get {
@@ -92,27 +89,23 @@ namespace DomiMantApp.VistasModelos
             }
         }
         #endregion
-
         #region Comandos
         public ICommand GuardarVehuculo {
             get {
                 return new RelayCommand(Guardar);
             }
         }
-
         public ICommand VehiculoCancelar {
             get {
                 return new RelayCommand(Cancelar);
             }
-        }
-        
+        }        
         public ICommand VehiculoEliminar {
             get {
                 return new RelayCommand(Eliminar);
             }
         }        
         #endregion
-
         #region Metodos
         private void Guardar()
         {
@@ -158,12 +151,10 @@ namespace DomiMantApp.VistasModelos
                     "Ok");
             }
         }        
-
         private void Cancelar()
         {
             throw new NotImplementedException();
         }
-
         private async void Eliminar()
         {
             var autorizado = await App.Current.MainPage.DisplayAlert(
@@ -182,6 +173,5 @@ namespace DomiMantApp.VistasModelos
             }
         }
         #endregion
-
     }
 }

@@ -10,7 +10,7 @@ namespace DomiMantApp
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
-    [DesignTimeVisible(true)]
+    //[DesignTimeVisible(true)]
     public partial class MainPage : ContentPage
     {
         public MainPage()

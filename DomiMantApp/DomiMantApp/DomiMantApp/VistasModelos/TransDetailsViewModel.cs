@@ -12,6 +12,7 @@ namespace DomiMantApp.VistasModelos
     using System.Windows.Input;
     using GalaSoft.MvvmLight.Command;
     using System.Linq;
+    using DomiMantApp.Repositorios;
 
     public class TransDetailsViewModel : ModeradorBase
     {
@@ -99,19 +100,59 @@ namespace DomiMantApp.VistasModelos
         #region Metodos
         private void BuscarDetall()
         {
-            throw new NotImplementedException();
+            try
+            {                
+                using (var repoDetail= new Repositorio<Detalle_Transaccion>(GetDbPath()))
+                {
+                    if (string.IsNullOrEmpty(this.Buscar))
+                    {
+                        this.Detalle = new ObservableCollection<TransDetailItemsViewModel>(
+                               this.ToTransDetailViewModel());
+                    }
+                    else
+                    {
+                        this.Detalle = new ObservableCollection<TransDetailItemsViewModel>(
+                            this.ToTransDetailViewModel().Where(
+                                d => d.Vehiculo.ToUpper().Contains(this.Buscar.ToUpper()) ||
+                                d.Descrip.ToUpper().Contains(this.Buscar.ToUpper())));
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
         private void Refrescar()
         {
-            throw new NotImplementedException();
+            this.CargarDetalle();
         }
         private void Agregar()
         {
             throw new NotImplementedException();
         }
-        private void CargarDetalle()
+        private async void CargarDetalle()
         {
+            try
+            {
+                this.Actualizar = true;
+                using (var repoDetalle= new Repositorio<Detalle_Transaccion>(GetDbPath()))
+                {
+                    detalletrans = repoDetalle.Buscar(t => t.TransID.Equals(5), td=>td.VehiculoID).ToList();
+                    repoDetalle.Dispose();
+                }
 
+                Detalle = new ObservableCollection<TransDetailItemsViewModel>(this.ToTransDetailViewModel());
+                this.Actualizar = false;
+            }
+            catch (Exception ex)
+            {
+                this.Actualizar = false;
+                await App.Current.MainPage.DisplayAlert(
+                    "Detalle Transaccion",
+                    $"Se produjo un error cargando el detalle\nDescripcion del error: {ex.Message}",
+                    "Ok"); 
+            }
         }
         private IEnumerable<TransDetailItemsViewModel> ToTransDetailViewModel()
         {

@@ -39,6 +39,7 @@ namespace DomiMantApp.VistasModelos
         private bool enseccion;
         private bool recordar;
         private DateTime fechanacimiento;
+        private string confirmarcontrasena;
         Usuarios Usuario;
         private bool verfecha;
         private bool vercedula;
@@ -103,6 +104,14 @@ namespace DomiMantApp.VistasModelos
             }
             set {
                 PasarValor(ref tipo, value);
+            }
+        }
+        public string ConfirmarContrasena {
+            get {
+                return this.confirmarcontrasena;
+            }
+            set {
+                PasarValor(ref this.confirmarcontrasena, value);
             }
         }
         public DateTime FechaNacimiento {
