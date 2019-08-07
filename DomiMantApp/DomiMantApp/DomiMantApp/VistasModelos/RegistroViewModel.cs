@@ -11,12 +11,18 @@ namespace DomiMantApp.VistasModelos
     using Repositorios;
     using System;
     using System.Collections.ObjectModel;
+    using System.Collections.Generic;
+    using System.Linq;
 
     public class RegistroViewModel:ModeradorBase
     {
         #region Constructor
         public RegistroViewModel()
         {
+            TipoItems = GetTiposUsuarios();
+            opcioneslst = GetOpciones(TipoUsuario.Cliente);
+            VerOpciones();
+
             if (Acciones.Equals(Accion.Modificar))
             {
                 MostrarRegistro();
@@ -35,11 +41,14 @@ namespace DomiMantApp.VistasModelos
         private string apellidos;
         private string emails;
         private string contrasena;
-        private TipoUsuario tipo;
+        private TiposUsuario tipo;
+        private List<TiposUsuario> tipositems;
         private bool enseccion;
         private bool recordar;
         private DateTime fechanacimiento;
         private string confirmarcontrasena;
+        private List<OpcioneCuentas> opcioneslst;
+        private ObservableCollection<OpcionesCuentasItemsViewModel> opcionescuentas;
         Usuarios Usuario;
         private bool verfecha;
         private bool vercedula;
@@ -48,6 +57,7 @@ namespace DomiMantApp.VistasModelos
         private bool verdirecciones;
         private bool verservicios;
         private bool vervehiculos;
+        private bool veropciones;
         #endregion
         #region Propiedades
         public int ID {
@@ -98,12 +108,20 @@ namespace DomiMantApp.VistasModelos
                 PasarValor(ref this.contrasena, value);
             }
         }
-        public TipoUsuario Tipo {
+        public TiposUsuario Tipo {
             get {
                 return this.tipo;
             }
             set {
-                PasarValor(ref tipo, value);
+                PasarValor(ref this.tipo, value);
+            }
+        }
+        public List<TiposUsuario> TipoItems {
+            get {
+                return this.tipositems;
+            }
+            set {
+                PasarValor(ref this.tipositems, value);
             }
         }
         public string ConfirmarContrasena {
@@ -120,6 +138,22 @@ namespace DomiMantApp.VistasModelos
             }
             set {
                 PasarValor(ref this.fechanacimiento, value);
+            }
+        }
+        public List<OpcioneCuentas> OpcionesCuenta {
+            get {
+                return this.opcioneslst;
+            }
+            set {
+                PasarValor(ref this.opcioneslst, value);
+            }
+        }
+        public ObservableCollection<OpcionesCuentasItemsViewModel> OpcionesCuentas {
+            get {
+                return this.opcionescuentas;
+            }
+            set {
+                PasarValor(ref this.opcionescuentas, value);
             }
         }
         public bool EnSeccion {
@@ -229,7 +263,7 @@ namespace DomiMantApp.VistasModelos
                             Emails = this.Emails,
                             EnSeccion = this.EnSeccion,
                             Recordar = this.Recordar,
-                            Tipo = this.Tipo
+                            Tipo = this.Tipo.TipoID
                         };
 
                         repo.Agregar(Usuario);
@@ -245,7 +279,7 @@ namespace DomiMantApp.VistasModelos
                             Emails = this.Emails,
                             EnSeccion = this.EnSeccion,
                             Recordar = this.Recordar,
-                            Tipo = this.Tipo
+                            Tipo = this.Tipo.TipoID
                         };
 
                         repo.Actualizar(Usuario);
@@ -253,28 +287,29 @@ namespace DomiMantApp.VistasModelos
                 }
             }                        
         }
-
         private void MostrarRegistro()
         {
-            this.ID = UsuarioActual.ID;
-            this.Codigo = UsuarioActual.Codigo;
-            this.Nombres = UsuarioActual.Nombres;
-            this.Apellidos = UsuarioActual.Apellidos;
-            this.Contrasena = UsuarioActual.Contrasena;
-            this.Emails = UsuarioActual.Emails;
-            this.EnSeccion = UsuarioActual.EnSeccion;
-            this.Recordar = UsuarioActual.Recordar;
-            this.Tipo = UsuarioActual.Tipo;
-            this.FechaNacimiento = UsuarioActual.FechaNacimiento;
+            if (UsuarioActual!=null)
+            {
+                this.ID = UsuarioActual.ID;
+                this.Codigo = UsuarioActual.Codigo;
+                this.Nombres = UsuarioActual.Nombres;
+                this.Apellidos = UsuarioActual.Apellidos;
+                this.Contrasena = UsuarioActual.Contrasena;
+                this.Emails = UsuarioActual.Emails;
+                this.EnSeccion = UsuarioActual.EnSeccion;
+                this.Recordar = UsuarioActual.Recordar;
+                this.Tipo = TipoItems.FirstOrDefault(t => t.TipoID.Equals(UsuarioActual.Tipo));
+                this.FechaNacimiento = UsuarioActual.FechaNacimiento; 
+            }
         }
-
         private void MostrarControlesOpcionales(bool value)
         {
             VerFecha = value;
             VerCedula = value;
             VerBtnBorrarCuenta = value;
+            veropciones = value;
         }
-
         private async void EliminarCuenta()
         {
             try
@@ -302,10 +337,21 @@ namespace DomiMantApp.VistasModelos
                     "Ok");
             }
         }
-
         private void Cancelar()
         {
             
+        }
+        private IEnumerable<OpcionesCuentasItemsViewModel> ToOpcionesItemsViewModel()
+        {
+            return this.opcioneslst.Select(o => new OpcionesCuentasItemsViewModel() {
+                OpcionId=o.OpcionId, 
+                Descripcion=o.Descripcion
+            });
+        }
+        private void VerOpciones()
+        {
+            this.OpcionesCuentas = new ObservableCollection<OpcionesCuentasItemsViewModel>(
+                this.ToOpcionesItemsViewModel());
         }
         #endregion
     }

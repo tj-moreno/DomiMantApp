@@ -16,13 +16,38 @@ namespace DomiMantApp.Globals
             Modificar=2
         }
 
+        public enum OpcionesdeCuenta {
+            Direcciones=1,
+            Vehiculos=2,
+            Transacciones=3,
+            Clientes=4,
+            Suplidores=5,
+            Servicios=6
+        }
+
         public class TiposUsuario {
             public TipoUsuario TipoID { get; set; }
             public string Descripcion { get; set; }
         }
 
-        public static Accion Acciones;
+        public static Accion Acciones; //= new Accion();
+        public static Usuarios UsuarioActual; //= new Usuarios();
 
-        public static Usuarios UsuarioActual;
+        public class OpcioneCuentas {
+            public OpcionesdeCuenta OpcionId { get; set; }
+            public string Descripcion { get; set; }
+        }
+
+        public class Opciones : OpcioneCuentas
+        {
+            public string Nombre {
+                get {
+                    return this.Descripcion;
+                }
+                set {
+                    value.ToString();
+                }
+            }
+        }
     }
 }

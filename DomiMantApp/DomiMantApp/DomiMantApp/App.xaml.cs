@@ -11,7 +11,7 @@ namespace DomiMantApp
         {
             InitializeComponent();
 
-            MainPage = new RegistroPage();
+            MainPage = new SuplidoresTabbedPage();
         }
 
         protected override void OnStart()
