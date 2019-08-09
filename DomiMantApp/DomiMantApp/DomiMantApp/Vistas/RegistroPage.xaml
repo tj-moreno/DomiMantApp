@@ -4,6 +4,24 @@
              x:Class="DomiMantApp.Vistas.RegistroPage"
              BindingContext="{Binding Moderador, Source={StaticResource Localizador}}"
              Title="Registro">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            BindingContext="{Binding Registro}"
+            Name="Guardar"
+            Order="Primary"
+            Icon="ic_launcher_Save"
+            Text="Guardar"
+            Priority="0"
+            Command="{Binding btnGuardar}"/>
+        <ToolbarItem
+            BindingContext="{Binding Registro}"
+            Name="Cancelar"
+            Order="Primary"
+            Icon="ic_launcher_Cancel"
+            Text="Cancelar"
+            Priority="1"
+            Command="{Binding btnCancelar}"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView
             BindingContext="{Binding Registro}">
@@ -77,15 +95,28 @@
                     ItemsSource="{Binding TipoItems, Mode=TwoWay}"
                     ItemDisplayBinding="{Binding Descripcion, Mode=TwoWay}"/>
                 <StackLayout
+                    Margin="10,0"
+                    Orientation="Horizontal"
+                    VerticalOptions="CenterAndExpand">
+                    <Label
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="Center"
+                        FontAttributes="Bold"
+                        Text="Desea que este dispositivo recuerde este Usuario?"/>
+                    <Switch
+                        IsToggled="{Binding Recordar, Mode=TwoWay}"/>
+                </StackLayout>
+                <StackLayout
                     Padding="5"
                     VerticalOptions="EndAndExpand">
                     <Button
                         Text="Eliminar Cuenta"
                         BorderRadius="23"
                         BorderWidth="46"
-                        BackgroundColor="Navy"
+                        BackgroundColor="#7b241c"
                         FontAttributes="Bold"
                         TextColor="White"
+                        Image="ic_btn_group_Borrar"
                         Command="{Binding btnEliminar}"
                         IsVisible="{Binding VerBtnBorrarCuenta, Mode=TwoWay}"/>
                 </StackLayout>

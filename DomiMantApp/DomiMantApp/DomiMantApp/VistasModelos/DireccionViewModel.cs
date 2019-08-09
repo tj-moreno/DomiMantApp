@@ -11,6 +11,7 @@ namespace DomiMantApp.VistasModelos
     using System.Windows.Input;
     using static DomiMantApp.Globals.Variables;
     using static DomiMantApp.Globals.Funciones;
+    using Xamarin.Forms;
 
     public class DireccionViewModel : ModeradorBase
     {
@@ -111,15 +112,14 @@ namespace DomiMantApp.VistasModelos
         }        
         #endregion
         #region Metodos
-        private async void Guardar()
-        {
+        private async void Guardar() {
             try
             {
                 using (var repo = new Repositorio<Direccion_Contactos>(GetDbPath()))
                 {
-                    switch (Acciones)
+                    switch (Accion)
                     {
-                        case Accion.Agregar:
+                        case Acciones.Agregar:
                             repo.Agregar(new Direccion_Contactos {
                                 UsuarioID = this.UsuarioID,
                                 Descripcion=this.Descripcion,
@@ -129,7 +129,7 @@ namespace DomiMantApp.VistasModelos
                                 Telefono=this.Telefono
                             });
                             break;
-                        case Accion.Modificar:
+                        case Acciones.Modificar:
                             direccion.UsuarioID = this.UsuarioID;
                             direccion.Descripcion = this.Descripcion;
                             direccion.Latitud = this.Latitud;
@@ -143,16 +143,14 @@ namespace DomiMantApp.VistasModelos
                     repo.Dispose();
                 }
             }
-            catch (Exception ex)
-            {
-                await App.Current.MainPage.DisplayAlert(
+            catch (Exception ex) {
+                await Application.Current.MainPage.DisplayAlert(
                     "Dirección",
-                    $"Error al intentar {Acciones.ToString()} la direccion {Descripcion}\nDescripción del Error: {ex.Message}",
+                    $"Error al intentar {Accion.ToString()} la direccion {Descripcion}\nDescripción del Error: {ex.Message}",
                     "Ok");
             }
         }
-        private void Cancelar()
-        {
+        private void Cancelar() {
             throw new NotImplementedException();
         }
         private void MostrarDireccion()
@@ -168,7 +166,7 @@ namespace DomiMantApp.VistasModelos
         {
             try
             {
-                var Autorizado = await App.Current.MainPage.DisplayAlert(
+                var Autorizado = await Application.Current.MainPage.DisplayAlert(
                     "Dirección",
                     $"Esta seguro que desea eliminar la direccion {Descripcion}?",
                     "Si",
@@ -185,7 +183,7 @@ namespace DomiMantApp.VistasModelos
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert(
+                await Application.Current.MainPage.DisplayAlert(
                     "Dirección",
                     $"Error al intentar eliminar la direccion {Descripcion}\nDescripción del Error: {ex.Message}",
                     "Ok");

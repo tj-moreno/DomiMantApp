@@ -13,6 +13,7 @@ namespace DomiMantApp.VistasModelos
     using System.Collections.ObjectModel;
     using System.Collections.Generic;
     using System.Linq;
+    using Xamarin.Forms;
 
     public class RegistroViewModel:ModeradorBase
     {
@@ -20,10 +21,8 @@ namespace DomiMantApp.VistasModelos
         public RegistroViewModel()
         {
             TipoItems = GetTiposUsuarios();
-            opcioneslst = GetOpciones(TipoUsuario.Cliente);
-            VerOpciones();
-
-            if (Acciones.Equals(Accion.Modificar))
+            
+            if (Accion.Equals(Acciones.Modificar))
             {
                 MostrarRegistro();
                 MostrarControlesOpcionales(true);
@@ -130,6 +129,7 @@ namespace DomiMantApp.VistasModelos
             }
             set {
                 PasarValor(ref this.confirmarcontrasena, value);
+                ConfirmPassword();
             }
         }
         public DateTime FechaNacimiento {
@@ -251,9 +251,9 @@ namespace DomiMantApp.VistasModelos
         {
             using (var repo = new Repositorio<Usuarios>(GetDbPath()))
             {
-                switch (Acciones)
+                switch (Accion)
                 {
-                    case Accion.Agregar:
+                    case Acciones.Agregar:
                         Usuario = new Usuarios
                         {
                             Codigo = this.Codigo,
@@ -267,8 +267,10 @@ namespace DomiMantApp.VistasModelos
                         };
 
                         repo.Agregar(Usuario);
+                        Moderador_De_Vistas.ObtenerInstancia().Login = new LoginViewModel();
+                        Application.Current.MainPage.Navigation.PopAsync();
                         break;
-                    case Accion.Modificar:
+                    case Acciones.Modificar:
                         Usuario = new Usuarios
                         {
                             ID = this.ID,
@@ -314,7 +316,7 @@ namespace DomiMantApp.VistasModelos
         {
             try
             {
-                var Autorizado = await App.Current.MainPage.DisplayAlert(
+                var Autorizado = await Application.Current.MainPage.DisplayAlert(
                     "Cuenta",
                     $"Seguro que desea eliminar la cuenta {Codigo}?",
                     "Si",
@@ -331,27 +333,37 @@ namespace DomiMantApp.VistasModelos
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert(
+                await Application.Current.MainPage.DisplayAlert(
                     "Cuenta",
                     $"Error al intentar eliminar la cuenta {Codigo}\nDescripción del Error: {ex.Message}",
                     "Ok");
             }
         }
-        private void Cancelar()
+        private async void Cancelar()
         {
-            
+            switch (Accion)
+            {
+                case Acciones.Agregar:
+                    Moderador_De_Vistas.ObtenerInstancia().Login = new LoginViewModel();
+                    await Application.Current.MainPage.Navigation.PopAsync();
+                    break;
+                case Acciones.Modificar:
+                    break;
+            }
         }
-        private IEnumerable<OpcionesCuentasItemsViewModel> ToOpcionesItemsViewModel()
+        private async void ConfirmPassword()
         {
-            return this.opcioneslst.Select(o => new OpcionesCuentasItemsViewModel() {
-                OpcionId=o.OpcionId, 
-                Descripcion=o.Descripcion
-            });
-        }
-        private void VerOpciones()
-        {
-            this.OpcionesCuentas = new ObservableCollection<OpcionesCuentasItemsViewModel>(
-                this.ToOpcionesItemsViewModel());
+            var pass = Contrasena.Substring(0, ConfirmarContrasena.Length);
+
+            if (pass != ConfirmarContrasena)
+            {
+                await Application.Current.MainPage.DisplayAlert(
+                    "DomiMant Apps",
+                    "La contraseña no coincide con la anterior",
+                    "Ok");
+
+                ConfirmarContrasena = "";
+            }
         }
         #endregion
     }

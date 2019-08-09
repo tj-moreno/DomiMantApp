@@ -11,6 +11,7 @@ namespace DomiMantApp.VistasModelos
     using System.Windows.Input;
     using static DomiMantApp.Globals.Variables;
     using System.Linq;
+    using Xamarin.Forms;
 
     public class TransaccionViewModel : ModeradorBase
     {
@@ -107,9 +108,9 @@ namespace DomiMantApp.VistasModelos
             {
                 using (var repoMaster=new Repositorio<Transaccion>(GetDbPath()))
                 {
-                    switch (Acciones)
+                    switch (Accion)
                     {
-                        case Accion.Agregar:
+                        case Acciones.Agregar:
                             #region Maestro
                             repoMaster.Agregar(new Transaccion
                             {
@@ -141,7 +142,7 @@ namespace DomiMantApp.VistasModelos
                             } 
                             #endregion
                             break;
-                        case Accion.Modificar:
+                        case Acciones.Modificar:
                             #region Maestro
                             trans.SuplidorID = this.SuplidorID;
                             trans.ClienteID = this.ClientesID;
@@ -193,16 +194,16 @@ namespace DomiMantApp.VistasModelos
         {
             try
             {
-                switch (Acciones)
+                switch (Accion)
                 {
-                    case Accion.Agregar:
+                    case Acciones.Agregar:
                         trans.SuplidorID = UsuarioActual.Codigo;
                         trans.ClienteID = this.ClientesID;
                         trans.Fecha = this.Fecha;
                         trans.NumeroTransaccion = this.NumeroTransaccion;
                         trans.Observaciones = this.Observaciones;
                         break;
-                    case Accion.Modificar:
+                    case Acciones.Modificar:
                         using (var repoDetalle= new Repositorio<Detalle_Transaccion>(GetDbPath()))
                         {
                             trans.DetalleTransaccion = (List<Detalle_Transaccion>)repoDetalle.Buscar(d => d.TransID.Equals(trans.ID));
@@ -220,7 +221,7 @@ namespace DomiMantApp.VistasModelos
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert(
+                await Application.Current.MainPage.DisplayAlert(
                     "Transacción",
                     $"Error al Cargar la Transacción {NumeroTransaccion}\nDetalle de Error: {ex.Message}",
                     "Ok");

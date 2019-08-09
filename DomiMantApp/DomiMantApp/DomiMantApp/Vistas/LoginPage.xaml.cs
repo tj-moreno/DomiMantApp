@@ -9,7 +9,7 @@ using Xamarin.Forms.Xaml;
 
 namespace DomiMantApp.Vistas
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+	//[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
 	{
 		public LoginPage ()

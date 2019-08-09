@@ -10,10 +10,10 @@ namespace DomiMantApp.Vistas
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
 
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SuplidoresTabbedPage : TabbedPage
     {
-        public SuplidoresTabbedPage ()
+        public SuplidoresTabbedPage()
         {
             InitializeComponent();
         }

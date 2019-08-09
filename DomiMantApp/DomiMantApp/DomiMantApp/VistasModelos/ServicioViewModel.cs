@@ -100,9 +100,9 @@ namespace DomiMantApp.VistasModelos
             {
                 using (var repositorio = new Repositorio<Servicios>(GetDbPath()))
                 {
-                    switch (Acciones)
+                    switch (Accion)
                     {
-                        case Accion.Agregar:
+                        case Acciones.Agregar:
                             repositorio.Agregar(new Servicios {
                                 Codigo = this.Codigo,
                                 Descripcion=this.Descripcion,
@@ -112,7 +112,7 @@ namespace DomiMantApp.VistasModelos
                                 Tiempogarantia=this.Tiempogarantia
                             });
                             break;
-                        case Accion.Modificar:
+                        case Acciones.Modificar:
                             servicios = new Servicios {
                                 ID=servicios.ID,
                                 Codigo=this.Codigo,
@@ -132,7 +132,7 @@ namespace DomiMantApp.VistasModelos
             catch (Exception ex)
             {
                 App.Current.MainPage.DisplayAlert(
-                    $"Error al {Acciones.ToString()}",
+                    $"Error al {Accion.ToString()}",
                     $"Descripcion:\n{ex.Message}",
                     "Ok");
             }

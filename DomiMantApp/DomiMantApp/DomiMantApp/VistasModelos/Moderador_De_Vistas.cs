@@ -1,19 +1,15 @@
 ﻿
-using static DomiMantApp.Globals.Variables;
-
 namespace DomiMantApp.VistasModelos
 {
+    using static DomiMantApp.Globals.Variables;
+
     public class Moderador_De_Vistas
     {
         #region Conbstruictor
         public Moderador_De_Vistas()
-        {
+        {            
             Instancia = this;
-            //Acciones = new Accion();
-            //UsuarioActual = new Modelos.Usuarios();
-            Acciones = Accion.Modificar;
-            //UsuarioActual.Tipo = TipoUsuario.Cliente;
-            this.Registro = new RegistroViewModel();            
+            this.Login = new LoginViewModel();
         }
         #endregion
         #region Propiedades

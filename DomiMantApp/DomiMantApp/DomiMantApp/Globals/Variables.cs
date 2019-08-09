@@ -1,21 +1,19 @@
 ﻿
 
-using DomiMantApp.Modelos;
-
 namespace DomiMantApp.Globals
-{    
-    public static class Variables
+{
+    using DomiMantApp.Modelos;
+
+    public class Variables
     {
         public enum TipoUsuario {
             Cliente=1,
             Suplidor=2
         }
-
-        public enum Accion {
+        public enum Acciones {
             Agregar=1,
             Modificar=2
         }
-
         public enum OpcionesdeCuenta {
             Direcciones=1,
             Vehiculos=2,
@@ -24,20 +22,16 @@ namespace DomiMantApp.Globals
             Suplidores=5,
             Servicios=6
         }
-
         public class TiposUsuario {
             public TipoUsuario TipoID { get; set; }
             public string Descripcion { get; set; }
         }
-
-        public static Accion Acciones; //= new Accion();
-        public static Usuarios UsuarioActual; //= new Usuarios();
-
+        public static Acciones Accion;
+        public static Usuarios UsuarioActual;
         public class OpcioneCuentas {
             public OpcionesdeCuenta OpcionId { get; set; }
             public string Descripcion { get; set; }
         }
-
         public class Opciones : OpcioneCuentas
         {
             public string Nombre {

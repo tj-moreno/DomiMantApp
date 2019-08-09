@@ -9,6 +9,7 @@ namespace DomiMantApp.VistasModelos
     using static Globals.Funciones;
     using static Globals.Variables;
     using System.Windows.Input;
+    using Xamarin.Forms;
 
     public class VehiculoViewModel : ModeradorBase
     {
@@ -112,12 +113,11 @@ namespace DomiMantApp.VistasModelos
             try
             {
                 //Falta hacer las validaciones de los campos a almacenar (Reglas)
-
                 using (var repo = new Repositorio<Vehiculos>(GetDbPath()))
                 {                    
-                    switch (Acciones)
+                    switch (Accion)
                     {
-                        case Accion.Agregar:                            
+                        case Acciones.Agregar:                            
                             repo.Agregar(new Vehiculos {
                                 VehiculoID=this.VehiculoID,
                                 Marca=this.Marcha,
@@ -128,7 +128,7 @@ namespace DomiMantApp.VistasModelos
                                 PlazoMantenimientos=this.PlazoMantenimientos
                             });
                             break;
-                        case Accion.Modificar:
+                        case Acciones.Modificar:
                             vehiculos.VehiculoID = this.VehiculoID;
                             vehiculos.UsuarioID = this.UsuarioID;
                             vehiculos.Marca = this.Marcha;
@@ -145,7 +145,7 @@ namespace DomiMantApp.VistasModelos
             }
             catch (Exception ex)
             {
-                App.Current.MainPage.DisplayAlert(
+                Application.Current.MainPage.DisplayAlert(
                     "Vehiculos",
                     $"Descripcion de Error:\n{ex.Message}",
                     "Ok");
@@ -157,7 +157,7 @@ namespace DomiMantApp.VistasModelos
         }
         private async void Eliminar()
         {
-            var autorizado = await App.Current.MainPage.DisplayAlert(
+            var autorizado = await Application.Current.MainPage.DisplayAlert(
                 "Vehiculos",
                 $"Seguro que desea eliminar el vehiculo {VehiculoID}",
                 "Si",

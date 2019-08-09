@@ -8,6 +8,7 @@ namespace DomiMantApp.VistasModelos
     using System.Windows.Input;
     using static DomiMantApp.Globals.Variables;  
     using System.Linq;
+    using Xamarin.Forms;
 
     public class TransDetailViewModel : ModeradorBase
     {
@@ -16,7 +17,7 @@ namespace DomiMantApp.VistasModelos
         {
             transaccion = this.Trans;
             detalle = _detalle;
-            if (Acciones.Equals(Accion.Modificar))
+            if (Accion.Equals(Acciones.Modificar))
                 MostrarDetalle();
         }
         #endregion
@@ -126,9 +127,9 @@ namespace DomiMantApp.VistasModelos
         {
             try
             {
-                switch (Acciones)
+                switch (Accion)
                 {
-                    case Accion.Agregar:
+                    case Acciones.Agregar:
                         Trans.DetalleTransaccion.Add(new Detalle_Transaccion
                         {
                             TransID = this.Trans.ID,
@@ -140,7 +141,7 @@ namespace DomiMantApp.VistasModelos
                             FinGarantia = this.FinGarantia
                         });
                         break;
-                    case Accion.Modificar:
+                    case Acciones.Modificar:
                         Trans.DetalleTransaccion.FirstOrDefault(t =>
                             t.ServicioID.Equals(this.ServicioID)).VehiculoID = this.VehiculoID;
                         Trans.DetalleTransaccion.FirstOrDefault(t =>
@@ -156,7 +157,7 @@ namespace DomiMantApp.VistasModelos
             {
                 await App.Current.MainPage.DisplayAlert(
                     "Detalle de Transacción",
-                    $"Error al {Acciones.ToString()}\nDescripcion del Error: {ex.Message}",
+                    $"Error al {Accion.ToString()}\nDescripcion del Error: {ex.Message}",
                     "Ok");
             }
         }
@@ -168,7 +169,7 @@ namespace DomiMantApp.VistasModelos
         {
             try
             {
-                var autorizado = await App.Current.MainPage.DisplayAlert(
+                var autorizado = await Application.Current.MainPage.DisplayAlert(
                     "Detalle De Transacción",
                     $"Esta seguro que desea eliminar el detalle {Descripcion} de esta Transaccion?",
                     "Si",
@@ -181,7 +182,7 @@ namespace DomiMantApp.VistasModelos
             }
             catch (Exception ex)
             {
-                await App.Current.MainPage.DisplayAlert(
+                await Application.Current.MainPage.DisplayAlert(
                     "Detalle de Transacción",
                     $"Error eliminando el detalle {Descripcion}\nDetalle del Error: {ex.Message}",
                     "Ok");

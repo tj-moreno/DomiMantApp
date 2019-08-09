@@ -10,8 +10,7 @@ namespace DomiMantApp
         public App()
         {
             InitializeComponent();
-
-            MainPage = new SuplidoresTabbedPage();
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()
