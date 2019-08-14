@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("DomiMantApp.Vistas.SuplidoresTabbedPage.xaml", "Vistas/SuplidoresTabbedPage.xaml", typeof(global::DomiMantApp.Vistas.SuplidoresTabbedPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("DomiMantApp.Vistas.SuplidorTabbedPage.xaml", "Vistas/SuplidorTabbedPage.xaml", typeof(global::DomiMantApp.Vistas.SuplidorTabbedPage))]
 
 namespace DomiMantApp.Vistas {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Vistas\\SuplidoresTabbedPage.xaml")]
-    public partial class SuplidoresTabbedPage : global::Xamarin.Forms.TabbedPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Vistas\\SuplidorTabbedPage.xaml")]
+    public partial class SuplidorTabbedPage : global::Xamarin.Forms.TabbedPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(SuplidoresTabbedPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(SuplidorTabbedPage));
         }
     }
 }

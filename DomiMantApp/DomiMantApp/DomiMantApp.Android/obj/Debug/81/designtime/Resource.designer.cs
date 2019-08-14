@@ -26,6 +26,108 @@ namespace DomiMantApp.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Xamarin.Essentials.Resource.Attribute.font = global::DomiMantApp.Droid.Resource.Attribute.font;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderAuthority = global::DomiMantApp.Droid.Resource.Attribute.fontProviderAuthority;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderCerts = global::DomiMantApp.Droid.Resource.Attribute.fontProviderCerts;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderFetchStrategy = global::DomiMantApp.Droid.Resource.Attribute.fontProviderFetchStrategy;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderFetchTimeout = global::DomiMantApp.Droid.Resource.Attribute.fontProviderFetchTimeout;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderPackage = global::DomiMantApp.Droid.Resource.Attribute.fontProviderPackage;
+			global::Xamarin.Essentials.Resource.Attribute.fontProviderQuery = global::DomiMantApp.Droid.Resource.Attribute.fontProviderQuery;
+			global::Xamarin.Essentials.Resource.Attribute.fontStyle = global::DomiMantApp.Droid.Resource.Attribute.fontStyle;
+			global::Xamarin.Essentials.Resource.Attribute.fontWeight = global::DomiMantApp.Droid.Resource.Attribute.fontWeight;
+			global::Xamarin.Essentials.Resource.Boolean.abc_action_bar_embed_tabs = global::DomiMantApp.Droid.Resource.Boolean.abc_action_bar_embed_tabs;
+			global::Xamarin.Essentials.Resource.Color.notification_action_color_filter = global::DomiMantApp.Droid.Resource.Color.notification_action_color_filter;
+			global::Xamarin.Essentials.Resource.Color.notification_icon_bg_color = global::DomiMantApp.Droid.Resource.Color.notification_icon_bg_color;
+			global::Xamarin.Essentials.Resource.Color.ripple_material_light = global::DomiMantApp.Droid.Resource.Color.ripple_material_light;
+			global::Xamarin.Essentials.Resource.Color.secondary_text_default_material_light = global::DomiMantApp.Droid.Resource.Color.secondary_text_default_material_light;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_horizontal_material = global::DomiMantApp.Droid.Resource.Dimension.compat_button_inset_horizontal_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_inset_vertical_material = global::DomiMantApp.Droid.Resource.Dimension.compat_button_inset_vertical_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_padding_horizontal_material = global::DomiMantApp.Droid.Resource.Dimension.compat_button_padding_horizontal_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_button_padding_vertical_material = global::DomiMantApp.Droid.Resource.Dimension.compat_button_padding_vertical_material;
+			global::Xamarin.Essentials.Resource.Dimension.compat_control_corner_material = global::DomiMantApp.Droid.Resource.Dimension.compat_control_corner_material;
+			global::Xamarin.Essentials.Resource.Dimension.notification_action_icon_size = global::DomiMantApp.Droid.Resource.Dimension.notification_action_icon_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_action_text_size = global::DomiMantApp.Droid.Resource.Dimension.notification_action_text_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_big_circle_margin = global::DomiMantApp.Droid.Resource.Dimension.notification_big_circle_margin;
+			global::Xamarin.Essentials.Resource.Dimension.notification_content_margin_start = global::DomiMantApp.Droid.Resource.Dimension.notification_content_margin_start;
+			global::Xamarin.Essentials.Resource.Dimension.notification_large_icon_height = global::DomiMantApp.Droid.Resource.Dimension.notification_large_icon_height;
+			global::Xamarin.Essentials.Resource.Dimension.notification_large_icon_width = global::DomiMantApp.Droid.Resource.Dimension.notification_large_icon_width;
+			global::Xamarin.Essentials.Resource.Dimension.notification_main_column_padding_top = global::DomiMantApp.Droid.Resource.Dimension.notification_main_column_padding_top;
+			global::Xamarin.Essentials.Resource.Dimension.notification_media_narrow_margin = global::DomiMantApp.Droid.Resource.Dimension.notification_media_narrow_margin;
+			global::Xamarin.Essentials.Resource.Dimension.notification_right_icon_size = global::DomiMantApp.Droid.Resource.Dimension.notification_right_icon_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_right_side_padding_top = global::DomiMantApp.Droid.Resource.Dimension.notification_right_side_padding_top;
+			global::Xamarin.Essentials.Resource.Dimension.notification_small_icon_background_padding = global::DomiMantApp.Droid.Resource.Dimension.notification_small_icon_background_padding;
+			global::Xamarin.Essentials.Resource.Dimension.notification_small_icon_size_as_large = global::DomiMantApp.Droid.Resource.Dimension.notification_small_icon_size_as_large;
+			global::Xamarin.Essentials.Resource.Dimension.notification_subtext_size = global::DomiMantApp.Droid.Resource.Dimension.notification_subtext_size;
+			global::Xamarin.Essentials.Resource.Dimension.notification_top_pad = global::DomiMantApp.Droid.Resource.Dimension.notification_top_pad;
+			global::Xamarin.Essentials.Resource.Dimension.notification_top_pad_large_text = global::DomiMantApp.Droid.Resource.Dimension.notification_top_pad_large_text;
+			global::Xamarin.Essentials.Resource.Drawable.notification_action_background = global::DomiMantApp.Droid.Resource.Drawable.notification_action_background;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg = global::DomiMantApp.Droid.Resource.Drawable.notification_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low = global::DomiMantApp.Droid.Resource.Drawable.notification_bg_low;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low_normal = global::DomiMantApp.Droid.Resource.Drawable.notification_bg_low_normal;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_low_pressed = global::DomiMantApp.Droid.Resource.Drawable.notification_bg_low_pressed;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_normal = global::DomiMantApp.Droid.Resource.Drawable.notification_bg_normal;
+			global::Xamarin.Essentials.Resource.Drawable.notification_bg_normal_pressed = global::DomiMantApp.Droid.Resource.Drawable.notification_bg_normal_pressed;
+			global::Xamarin.Essentials.Resource.Drawable.notification_icon_background = global::DomiMantApp.Droid.Resource.Drawable.notification_icon_background;
+			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_bg = global::DomiMantApp.Droid.Resource.Drawable.notification_template_icon_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notification_template_icon_low_bg = global::DomiMantApp.Droid.Resource.Drawable.notification_template_icon_low_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notification_tile_bg = global::DomiMantApp.Droid.Resource.Drawable.notification_tile_bg;
+			global::Xamarin.Essentials.Resource.Drawable.notify_panel_notification_icon_bg = global::DomiMantApp.Droid.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::Xamarin.Essentials.Resource.Id.action_container = global::DomiMantApp.Droid.Resource.Id.action_container;
+			global::Xamarin.Essentials.Resource.Id.action_divider = global::DomiMantApp.Droid.Resource.Id.action_divider;
+			global::Xamarin.Essentials.Resource.Id.action_image = global::DomiMantApp.Droid.Resource.Id.action_image;
+			global::Xamarin.Essentials.Resource.Id.action_text = global::DomiMantApp.Droid.Resource.Id.action_text;
+			global::Xamarin.Essentials.Resource.Id.actions = global::DomiMantApp.Droid.Resource.Id.actions;
+			global::Xamarin.Essentials.Resource.Id.async = global::DomiMantApp.Droid.Resource.Id.async;
+			global::Xamarin.Essentials.Resource.Id.blocking = global::DomiMantApp.Droid.Resource.Id.blocking;
+			global::Xamarin.Essentials.Resource.Id.chronometer = global::DomiMantApp.Droid.Resource.Id.chronometer;
+			global::Xamarin.Essentials.Resource.Id.forever = global::DomiMantApp.Droid.Resource.Id.forever;
+			global::Xamarin.Essentials.Resource.Id.icon = global::DomiMantApp.Droid.Resource.Id.icon;
+			global::Xamarin.Essentials.Resource.Id.icon_group = global::DomiMantApp.Droid.Resource.Id.icon_group;
+			global::Xamarin.Essentials.Resource.Id.info = global::DomiMantApp.Droid.Resource.Id.info;
+			global::Xamarin.Essentials.Resource.Id.italic = global::DomiMantApp.Droid.Resource.Id.italic;
+			global::Xamarin.Essentials.Resource.Id.line1 = global::DomiMantApp.Droid.Resource.Id.line1;
+			global::Xamarin.Essentials.Resource.Id.line3 = global::DomiMantApp.Droid.Resource.Id.line3;
+			global::Xamarin.Essentials.Resource.Id.normal = global::DomiMantApp.Droid.Resource.Id.normal;
+			global::Xamarin.Essentials.Resource.Id.notification_background = global::DomiMantApp.Droid.Resource.Id.notification_background;
+			global::Xamarin.Essentials.Resource.Id.notification_main_column = global::DomiMantApp.Droid.Resource.Id.notification_main_column;
+			global::Xamarin.Essentials.Resource.Id.notification_main_column_container = global::DomiMantApp.Droid.Resource.Id.notification_main_column_container;
+			global::Xamarin.Essentials.Resource.Id.right_icon = global::DomiMantApp.Droid.Resource.Id.right_icon;
+			global::Xamarin.Essentials.Resource.Id.right_side = global::DomiMantApp.Droid.Resource.Id.right_side;
+			global::Xamarin.Essentials.Resource.Id.tag_transition_group = global::DomiMantApp.Droid.Resource.Id.tag_transition_group;
+			global::Xamarin.Essentials.Resource.Id.text = global::DomiMantApp.Droid.Resource.Id.text;
+			global::Xamarin.Essentials.Resource.Id.text2 = global::DomiMantApp.Droid.Resource.Id.text2;
+			global::Xamarin.Essentials.Resource.Id.time = global::DomiMantApp.Droid.Resource.Id.time;
+			global::Xamarin.Essentials.Resource.Id.title = global::DomiMantApp.Droid.Resource.Id.title;
+			global::Xamarin.Essentials.Resource.Integer.status_bar_notification_info_maxnum = global::DomiMantApp.Droid.Resource.Integer.status_bar_notification_info_maxnum;
+			global::Xamarin.Essentials.Resource.Layout.notification_action = global::DomiMantApp.Droid.Resource.Layout.notification_action;
+			global::Xamarin.Essentials.Resource.Layout.notification_action_tombstone = global::DomiMantApp.Droid.Resource.Layout.notification_action_tombstone;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_custom_big = global::DomiMantApp.Droid.Resource.Layout.notification_template_custom_big;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_icon_group = global::DomiMantApp.Droid.Resource.Layout.notification_template_icon_group;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_part_chronometer = global::DomiMantApp.Droid.Resource.Layout.notification_template_part_chronometer;
+			global::Xamarin.Essentials.Resource.Layout.notification_template_part_time = global::DomiMantApp.Droid.Resource.Layout.notification_template_part_time;
+			global::Xamarin.Essentials.Resource.String.status_bar_notification_info_overflow = global::DomiMantApp.Droid.Resource.String.status_bar_notification_info_overflow;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification = global::DomiMantApp.Droid.Resource.Style.TextAppearance_Compat_Notification;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Info = global::DomiMantApp.Droid.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::DomiMantApp.Droid.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Time = global::DomiMantApp.Droid.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::Xamarin.Essentials.Resource.Style.TextAppearance_Compat_Notification_Title = global::DomiMantApp.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionContainer = global::DomiMantApp.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
+			global::Xamarin.Essentials.Resource.Style.Widget_Compat_NotificationActionText = global::DomiMantApp.Droid.Resource.Style.Widget_Compat_NotificationActionText;
+			global::Xamarin.Essentials.Resource.Xml.xamarin_essentials_fileprovider_file_paths = global::DomiMantApp.Droid.Resource.Xml.xamarin_essentials_fileprovider_file_paths;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily = global::DomiMantApp.Droid.Resource.Styleable.FontFamily;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderAuthority = global::DomiMantApp.Droid.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderCerts = global::DomiMantApp.Droid.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::DomiMantApp.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::DomiMantApp.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderPackage = global::DomiMantApp.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamily_fontProviderQuery = global::DomiMantApp.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont = global::DomiMantApp.Droid.Resource.Styleable.FontFamilyFont;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_font = global::DomiMantApp.Droid.Resource.Styleable.FontFamilyFont_android_font;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_fontStyle = global::DomiMantApp.Droid.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_android_fontWeight = global::DomiMantApp.Droid.Resource.Styleable.FontFamilyFont_android_fontWeight;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_font = global::DomiMantApp.Droid.Resource.Styleable.FontFamilyFont_font;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontStyle = global::DomiMantApp.Droid.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::Xamarin.Essentials.Resource.Styleable.FontFamilyFont_fontWeight = global::DomiMantApp.Droid.Resource.Styleable.FontFamilyFont_fontWeight;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_fade_in = global::DomiMantApp.Droid.Resource.Animation.abc_fade_in;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_fade_out = global::DomiMantApp.Droid.Resource.Animation.abc_fade_out;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_grow_fade_in_from_bottom = global::DomiMantApp.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -822,6 +924,8 @@ namespace DomiMantApp.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Id.expanded_menu = global::DomiMantApp.Droid.Resource.Id.expanded_menu;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.fill = global::DomiMantApp.Droid.Resource.Id.fill;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.@fixed = global::DomiMantApp.Droid.Resource.Id.@fixed;
+			global::Xamarin.Forms.Platform.Android.Resource.Id.flyoutcontent_appbar = global::DomiMantApp.Droid.Resource.Id.flyoutcontent_appbar;
+			global::Xamarin.Forms.Platform.Android.Resource.Id.flyoutcontent_recycler = global::DomiMantApp.Droid.Resource.Id.flyoutcontent_recycler;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.forever = global::DomiMantApp.Droid.Resource.Id.forever;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.ghost_view = global::DomiMantApp.Droid.Resource.Id.ghost_view;
 			global::Xamarin.Forms.Platform.Android.Resource.Id.home = global::DomiMantApp.Droid.Resource.Id.home;
@@ -2016,17 +2120,17 @@ namespace DomiMantApp.Droid
 			// aapt resource value: 0x7F01000E
 			public const int design_snackbar_out = 2130771982;
 			
-			// aapt resource value: 0x7F080018
-			public const int EnterFromLeft = 2131230744;
+			// aapt resource value: 0x7F090018
+			public const int EnterFromLeft = 2131296280;
 			
-			// aapt resource value: 0x7F080019
-			public const int EnterFromRight = 2131230745;
+			// aapt resource value: 0x7F090019
+			public const int EnterFromRight = 2131296281;
 			
-			// aapt resource value: 0x7F080020
-			public const int ExitToLeft = 2131230752;
+			// aapt resource value: 0x7F090020
+			public const int ExitToLeft = 2131296288;
 			
-			// aapt resource value: 0x7F080021
-			public const int ExitToRight = 2131230753;
+			// aapt resource value: 0x7F090021
+			public const int ExitToRight = 2131296289;
 			
 			// aapt resource value: 0x7F01000F
 			public const int tooltip_enter = 2130771983;
@@ -4318,28 +4422,31 @@ namespace DomiMantApp.Droid
 			public const int design_snackbar_background = 2131296347;
 			
 			// aapt resource value: 0x7F010002
-			public const int icon = 2130771970;
+			public const int f3 = 2130771970;
 			
 			// aapt resource value: 0x7F010003
-			public const int ic_action_arrow_forward_ios = 2130771971;
+			public const int icon = 2130771971;
 			
 			// aapt resource value: 0x7F010004
-			public const int ic_action_Clientes = 2130771972;
+			public const int ic_action_arrow_forward_ios = 2130771972;
 			
 			// aapt resource value: 0x7F010005
-			public const int ic_action_contact_phone = 2130771973;
+			public const int ic_action_Clientes = 2130771973;
 			
 			// aapt resource value: 0x7F010006
-			public const int ic_action_General = 2130771974;
+			public const int ic_action_contact_phone = 2130771974;
 			
 			// aapt resource value: 0x7F010007
-			public const int ic_action_Mecanico = 2130771975;
+			public const int ic_action_General = 2130771975;
 			
 			// aapt resource value: 0x7F010008
-			public const int ic_action_Servicios = 2130771976;
+			public const int ic_action_Mecanico = 2130771976;
 			
 			// aapt resource value: 0x7F010009
-			public const int ic_action_Vehiculos = 2130771977;
+			public const int ic_action_Servicios = 2130771977;
+			
+			// aapt resource value: 0x7F010010
+			public const int ic_action_Vehiculos = 2130771984;
 			
 			// aapt resource value: 0x7F090054
 			public const int ic_audiotrack_dark = 2131296340;
@@ -4347,8 +4454,14 @@ namespace DomiMantApp.Droid
 			// aapt resource value: 0x7F090055
 			public const int ic_audiotrack_light = 2131296341;
 			
-			// aapt resource value: 0x7F010010
-			public const int ic_btn_group_Borrar = 2130771984;
+			// aapt resource value: 0x7F010011
+			public const int ic_btn_group_Borrar = 2130771985;
+			
+			// aapt resource value: 0x7F010012
+			public const int ic_Cliente_Menu = 2130771986;
+			
+			// aapt resource value: 0x7F010013
+			public const int ic_Contacto_Menu = 2130771987;
 			
 			// aapt resource value: 0x7F090056
 			public const int ic_dialog_close_dark = 2131296342;
@@ -4356,8 +4469,8 @@ namespace DomiMantApp.Droid
 			// aapt resource value: 0x7F090057
 			public const int ic_dialog_close_light = 2131296343;
 			
-			// aapt resource value: 0x7F010011
-			public const int ic_Eliminar = 2130771985;
+			// aapt resource value: 0x7F010014
+			public const int ic_Eliminar = 2130771988;
 			
 			// aapt resource value: 0x7F090058
 			public const int ic_group_collapse_00 = 2131296344;
@@ -4455,11 +4568,11 @@ namespace DomiMantApp.Droid
 			// aapt resource value: 0x7F090077
 			public const int ic_group_expand_15 = 2131296375;
 			
-			// aapt resource value: 0x7F010012
-			public const int ic_launcher_Cancel = 2130771986;
+			// aapt resource value: 0x7F010015
+			public const int ic_launcher_Cancel = 2130771989;
 			
-			// aapt resource value: 0x7F010013
-			public const int ic_launcher_Save = 2130771987;
+			// aapt resource value: 0x7F010016
+			public const int ic_launcher_Save = 2130771990;
 			
 			// aapt resource value: 0x7F090078
 			public const int ic_media_pause_dark = 2131296376;
@@ -4478,6 +4591,9 @@ namespace DomiMantApp.Droid
 			
 			// aapt resource value: 0x7F09007D
 			public const int ic_media_stop_light = 2131296381;
+			
+			// aapt resource value: 0x7F010017
+			public const int ic_Menu_group_Salir = 2130771991;
 			
 			// aapt resource value: 0x7F09007E
 			public const int ic_mr_button_connected_00_dark = 2131296382;
@@ -4866,6 +4982,15 @@ namespace DomiMantApp.Droid
 			// aapt resource value: 0x7F0900FE
 			public const int ic_mr_button_grey = 2131296510;
 			
+			// aapt resource value: 0x7F010018
+			public const int ic_Servicio_Menu = 2130771992;
+			
+			// aapt resource value: 0x7F010019
+			public const int ic_settings_Menu = 2130771993;
+			
+			// aapt resource value: 0x7F010020
+			public const int ic_Vehiculo_Menu = 2130772000;
+			
 			// aapt resource value: 0x7F0900FF
 			public const int ic_vol_type_speaker_dark = 2131296511;
 			
@@ -5159,10 +5284,10 @@ namespace DomiMantApp.Droid
 			public const int @fixed = 2131492914;
 			
 			// aapt resource value: 0x7F020176
-			public const int flyoutcontent.appbar = 2130837878;
+			public const int flyoutcontent_appbar = 2130837878;
 			
 			// aapt resource value: 0x7F020177
-			public const int flyoutcontent.recycler = 2130837879;
+			public const int flyoutcontent_recycler = 2130837879;
 			
 			// aapt resource value: 0x7F0C0009
 			public const int forever = 2131492873;
@@ -9418,6 +9543,22 @@ namespace DomiMantApp.Droid
 			}
 			
 			private Styleable()
+			{
+			}
+		}
+		
+		public partial class Xml
+		{
+			
+			// aapt resource value: 0x7F080002
+			public const int xamarin_essentials_fileprovider_file_paths = 2131230722;
+			
+			static Xml()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Xml()
 			{
 			}
 		}

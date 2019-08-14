@@ -83,18 +83,18 @@ namespace DomiMantApp.VistasModelos
             {
                 Indicador = true;
                 if (ValidarCuenta())
-                {
+                {                    
                     switch (UsuarioActual.Tipo) 
                     {
                         case TipoUsuario.Cliente:
-                            Accion = Acciones.Modificar;
-                            Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel();                            
-                            Application.Current.MainPage= new NavigationPage(new ClienteTabbePage());
+                            Accion = Acciones.Modificar;                            
+                            Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel();
+                            App.Current.MainPage=new ClienteMasterPage();
                             break;
                         case TipoUsuario.Suplidor:
                             Accion = Acciones.Modificar;
-                            Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel();                            
-                            Application.Current.MainPage= new NavigationPage(new SuplidoresTabbedPage());
+                            Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel();
+                            App.Current.MainPage= new MasterPage();
                             break;
                     }
                 }

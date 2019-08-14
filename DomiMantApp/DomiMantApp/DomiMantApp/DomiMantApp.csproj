@@ -27,12 +27,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Vistas\ClienteTabbedPage.xaml.cs">
-      <DependentUpon>ClienteTabbedPage.xaml</DependentUpon>
+    <Compile Update="Vistas\MasterPage.xaml.cs">
+      <DependentUpon>MasterPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Vistas\ClienteMasterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Vistas\ClientesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -45,6 +48,9 @@
     <EmbeddedResource Update="Vistas\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Vistas\MenuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Vistas\RegistroPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -54,7 +60,10 @@
     <EmbeddedResource Update="Vistas\SuplidoresPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Vistas\SuplidoresTabbedPage.xaml">
+    <EmbeddedResource Update="Vistas\MasterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vistas\SuplidorTabbedPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Vistas\VehiculosPage.xaml">

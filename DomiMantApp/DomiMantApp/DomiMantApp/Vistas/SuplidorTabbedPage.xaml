@@ -2,12 +2,12 @@
 <TabbedPage 
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:tabs="clr-namespace:DomiMantApp.Vistas"
-    x:Class="DomiMantApp.Vistas.SuplidoresTabbedPage"
-    Title="Suplidores">
+    x:Class="DomiMantApp.Vistas.SuplidorTabbedPage"    
+    xmlns:tabb="clr-namespace:DomiMantApp.Vistas"
+    Title="Suplidor">
+
     <TabbedPage.Children>
-        <tabs:RegistroPage/>
-        <tabs:ClientesPage/>
-        <tabs:ServiciosPage/>
+        <tabb:ClientesPage/>
+        <tabb:ServiciosPage/>
     </TabbedPage.Children>
 </TabbedPage>

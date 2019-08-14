@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("DomiMantApp.Vistas.ClienteTabbedPage.xaml", "Vistas/ClienteTabbedPage.xaml", typeof(global::DomiMantApp.Vistas.ClienteTabbePage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("DomiMantApp.Vistas.ClienteTabbedPage.xaml", "Vistas/ClienteTabbedPage.xaml", typeof(global::DomiMantApp.Vistas.ClienteTabbedPage))]
 
 namespace DomiMantApp.Vistas {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Vistas\\ClienteTabbedPage.xaml")]
-    public partial class ClienteTabbePage : global::Xamarin.Forms.TabbedPage {
+    public partial class ClienteTabbedPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(ClienteTabbePage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(ClienteTabbedPage));
         }
     }
 }
