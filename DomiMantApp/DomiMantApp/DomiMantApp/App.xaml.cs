@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace DomiMantApp
 {
+    using DomiMantApp.Splash;
     using DomiMantApp.Vistas;    
     using Xamarin.Forms;
 
@@ -13,7 +14,7 @@ namespace DomiMantApp
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new SplashPage(); //new NavigationPage(new LoginPage());
         }
         #endregion
         #region Propiedades

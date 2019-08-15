@@ -83,7 +83,12 @@ namespace DomiMantApp.VistasModelos
             {
                 Indicador = true;
                 if (ValidarCuenta())
-                {                    
+                {
+                    using (var repoUsuario= new Repositorio<Usuarios>(GetDbPath()))
+                    {
+                        UsuarioActual.EnSeccion = true;
+                        repoUsuario.Actualizar(UsuarioActual);
+                    }
                     switch (UsuarioActual.Tipo) 
                     {
                         case TipoUsuario.Cliente:
