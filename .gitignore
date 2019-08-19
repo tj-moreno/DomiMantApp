@@ -66,7 +66,6 @@ fastlane/readme.md
 DomiMantApp/.vs/DomiMantApp/DesignTimeBuild/.dtbcache
 DomiMantApp/.vs/DomiMantApp/v16/Server/sqlite3/db.lock
 DomiMantApp/.vs/DomiMantApp/v16/Server/sqlite3/storage.ide
-DomiMantApp/DomiMantApp.sln
 DomiMantApp/DomiMantApp/DomiMantApp.Android/Assets/AboutAssets.txt
 DomiMantApp/DomiMantApp/DomiMantApp.Android/DomiMantApp.Android.csproj
 DomiMantApp/DomiMantApp/DomiMantApp.Android/obj/DomiMantApp.Android.csproj.nuget.dgspec.json
