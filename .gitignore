@@ -67,7 +67,6 @@ DomiMantApp/.vs/DomiMantApp/DesignTimeBuild/.dtbcache
 DomiMantApp/.vs/DomiMantApp/v16/Server/sqlite3/db.lock
 DomiMantApp/.vs/DomiMantApp/v16/Server/sqlite3/storage.ide
 DomiMantApp/DomiMantApp/DomiMantApp.Android/Assets/AboutAssets.txt
-DomiMantApp/DomiMantApp/DomiMantApp.Android/DomiMantApp.Android.csproj
 DomiMantApp/DomiMantApp/DomiMantApp.Android/obj/DomiMantApp.Android.csproj.nuget.dgspec.json
 DomiMantApp/DomiMantApp/DomiMantApp.Android/obj/DomiMantApp.Android.csproj.nuget.g.props
 DomiMantApp/DomiMantApp/DomiMantApp.Android/obj/DomiMantApp.Android.csproj.nuget.g.targets
@@ -105,7 +104,6 @@ DomiMantApp/DomiMantApp/DomiMantApp.iOS/Assets.xcassets/AppIcon.appiconset/Icon6
 DomiMantApp/DomiMantApp/DomiMantApp.iOS/Assets.xcassets/AppIcon.appiconset/Icon76.png
 DomiMantApp/DomiMantApp/DomiMantApp.iOS/Assets.xcassets/AppIcon.appiconset/Icon80.png
 DomiMantApp/DomiMantApp/DomiMantApp.iOS/Assets.xcassets/AppIcon.appiconset/Icon87.png
-DomiMantApp/DomiMantApp/DomiMantApp.iOS/DomiMantApp.iOS.csproj
 DomiMantApp/DomiMantApp/DomiMantApp.iOS/Entitlements.plist
 DomiMantApp/DomiMantApp/DomiMantApp.iOS/obj/DomiMantApp.iOS.csproj.nuget.dgspec.json
 DomiMantApp/DomiMantApp/DomiMantApp.iOS/obj/DomiMantApp.iOS.csproj.nuget.g.props
