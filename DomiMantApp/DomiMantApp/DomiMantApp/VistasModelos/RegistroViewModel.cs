@@ -40,7 +40,9 @@ namespace DomiMantApp.VistasModelos
         private string apellidos;
         private string emails;
         private string contrasena;
-        private TiposUsuario tipo;
+        private string cedula;
+        private string descripcion;
+        private TipoUsuario tipo;
         private List<TiposUsuario> tipositems;
         private bool enseccion;
         private bool recordar;
@@ -107,7 +109,23 @@ namespace DomiMantApp.VistasModelos
                 PasarValor(ref this.contrasena, value);
             }
         }
-        public TiposUsuario Tipo {
+        public string Cedula {
+            get {
+                return this.cedula;
+            }
+            set {
+                PasarValor(ref this.cedula, value);
+            }
+        }
+        public string Descripcion {
+            get {
+                return this.descripcion;
+            }
+            set {
+                PasarValor(ref this.descripcion, value);
+            }
+        }
+        public TipoUsuario Tipo {
             get {
                 return this.tipo;
             }
@@ -263,7 +281,7 @@ namespace DomiMantApp.VistasModelos
                             Emails = this.Emails,
                             EnSeccion = this.EnSeccion,
                             Recordar = this.Recordar,
-                            Tipo = this.Tipo.TipoID
+                            Tipo = this.Tipo
                         };
 
                         repo.Agregar(Usuario);
@@ -278,31 +296,35 @@ namespace DomiMantApp.VistasModelos
                             Nombres = this.Nombres,
                             Apellidos = this.Apellidos,
                             Contrasena = this.Contrasena,
+                            Cedula=this.Cedula,
                             Emails = this.Emails,
                             EnSeccion = this.EnSeccion,
                             Recordar = this.Recordar,
-                            Tipo = this.Tipo.TipoID
+                            Tipo = this.Tipo
                         };
 
                         repo.Actualizar(Usuario);
                         break;
                 }
-            }                        
+            }
         }
         private void MostrarRegistro()
         {
             if (UsuarioActual!=null)
             {
+                this.Usuario = UsuarioActual;
                 this.ID = UsuarioActual.ID;
                 this.Codigo = UsuarioActual.Codigo;
                 this.Nombres = UsuarioActual.Nombres;
                 this.Apellidos = UsuarioActual.Apellidos;
                 this.Contrasena = UsuarioActual.Contrasena;
+                this.Cedula = UsuarioActual.Cedula;
                 this.Emails = UsuarioActual.Emails;
                 this.EnSeccion = UsuarioActual.EnSeccion;
                 this.Recordar = UsuarioActual.Recordar;
-                this.Tipo = TipoItems.FirstOrDefault(t => t.TipoID.Equals(UsuarioActual.Tipo));
-                this.FechaNacimiento = UsuarioActual.FechaNacimiento; 
+                this.Descripcion = TipoItems.FirstOrDefault(t => t.TipoID.Equals(UsuarioActual.Tipo)).Descripcion;
+                this.Tipo = TipoItems.FirstOrDefault(t => t.TipoID.Equals(UsuarioActual.Tipo)).TipoID;
+                this.FechaNacimiento = UsuarioActual.FechaNacimiento;
             }
         }
         private void MostrarControlesOpcionales(bool value)
@@ -348,6 +370,7 @@ namespace DomiMantApp.VistasModelos
                     await Application.Current.MainPage.Navigation.PopAsync();
                     break;
                 case Acciones.Modificar:
+                    await Application.Current.MainPage.Navigation.PopAsync();
                     break;
             }
         }
