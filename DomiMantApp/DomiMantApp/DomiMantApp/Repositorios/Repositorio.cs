@@ -4,6 +4,7 @@ namespace DomiMantApp.Repositorios
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Linq.Expressions;
     using DomiMantApp.Modelos;
     using SQLite;
@@ -24,7 +25,7 @@ namespace DomiMantApp.Repositorios
 
         public void Actualizar(T entidad)
         {
-            using (var _cn = new SQLiteConnection(DBpaht))
+            using (var _cn = new SQLiteConnection(this.DBpaht))
             {
                 var db = _cn.Table<T>().FirstOrDefault(t => t.ID.Equals(entidad.ID));
 
@@ -37,7 +38,7 @@ namespace DomiMantApp.Repositorios
 
         public void Agregar(T entidad)
         {
-            using (var _cn = new SQLiteConnection(DBpaht))
+            using (var _cn = new SQLiteConnection(this.DBpaht))
             {
                 _cn.Insert(entidad);
             }
@@ -48,7 +49,7 @@ namespace DomiMantApp.Repositorios
         {
             Expression<Func<T, bool>> wheretrue = Xamarin => true;
             var criterio = (Donde == null) ? wheretrue : Donde;
-            using (var _cn = new SQLiteConnection(DBpaht))
+            using (var _cn = new SQLiteConnection(this.DBpaht))
             {
                 return _cn.Table<T>().Where(criterio).ToList();
             }
@@ -61,7 +62,7 @@ namespace DomiMantApp.Repositorios
 
         public void Eliminar(T entidad)
         {
-            using (var _cn = new SQLiteConnection(DBpaht))
+            using (var _cn = new SQLiteConnection(this.DBpaht))
             {
                 _cn.Delete(entidad.ID);
             }
@@ -69,7 +70,7 @@ namespace DomiMantApp.Repositorios
 
         public T ObtenerPorID(int id)
         {
-            using (var _cn = new SQLiteConnection(DBpaht))
+            using (var _cn = new SQLiteConnection(this.DBpaht))
             {
                 var view = _cn.Table<T>().FirstOrDefault(t => t.ID.Equals(id));
                 if (view != null)

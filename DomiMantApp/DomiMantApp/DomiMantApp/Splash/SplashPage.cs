@@ -44,12 +44,12 @@ namespace DomiMantApp.Splash
             this.Content = sub;
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
-            //base.OnAppearing();
-            //await img.ScaleTo(1, 3000);
-            //await img.ScaleTo(0.9, 2600, Easing.Linear);
-            //await img.ScaleTo(150, 1200, Easing.Linear);
+            base.OnAppearing();
+            await img.ScaleTo(1, 3000);
+            await img.ScaleTo(0.9, 2600, Easing.Linear);
+            await img.ScaleTo(150, 1200, Easing.Linear);
 
             using (var repoUsuario = new Repositorio<Usuarios>(GetDbPath()))
             {
