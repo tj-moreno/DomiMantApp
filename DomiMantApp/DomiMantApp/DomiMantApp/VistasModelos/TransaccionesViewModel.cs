@@ -138,7 +138,7 @@ namespace DomiMantApp.VistasModelos
         private IEnumerable<TransaccionesItemsViewModel> ToTransaccionesItemsViewModel()
         {
             return this.transacciones.Select(t => new TransaccionesItemsViewModel() {
-                ID=t.ID,
+                Id=t.Id,
                 NumeroTransaccion=t.NumeroTransaccion,
                 ClienteID=t.ClienteID,
                 Fecha=t.Fecha,

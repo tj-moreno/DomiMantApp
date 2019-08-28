@@ -157,7 +157,7 @@ namespace DomiMantApp.VistasModelos
         private IEnumerable<TransDetailItemsViewModel> ToTransDetailViewModel()
         {
             return this.detalletrans.Select(td=>new TransDetailItemsViewModel() {
-                ID=td.ID,
+                Id=td.Id,
                 TransID=td.TransID,
                 VehiculoID=td.VehiculoID,
                 ServicioID=td.ServicioID,

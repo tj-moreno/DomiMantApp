@@ -206,7 +206,7 @@ namespace DomiMantApp.VistasModelos
                     case Acciones.Modificar:
                         using (var repoDetalle= new Repositorio<Detalle_Transaccion>(GetDbPath()))
                         {
-                            trans.DetalleTransaccion = (List<Detalle_Transaccion>)repoDetalle.Buscar(d => d.TransID.Equals(trans.ID));
+                            trans.DetalleTransaccion = (List<Detalle_Transaccion>)repoDetalle.Buscar(d => d.TransID.Equals(trans.Id));
                             repoDetalle.Dispose();
                         }
                         break;
@@ -229,7 +229,7 @@ namespace DomiMantApp.VistasModelos
         }
         private IEnumerable<TransDetailItemsViewModel> ToTransDetailItemsViewModel() {
             return this.trans.DetalleTransaccion.Select(t => new TransDetailItemsViewModel() {
-                ID=t.ID,
+                Id=t.Id,
                 TransID=t.TransID,
                 VehiculoID=t.VehiculoID,
                 ServicioID=t.ServicioID,

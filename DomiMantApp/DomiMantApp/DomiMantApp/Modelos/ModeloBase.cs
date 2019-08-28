@@ -1,10 +1,11 @@
 ﻿
-
 namespace DomiMantApp.Modelos
-{   
+{
+    using SQLite;
+
     public abstract class ModeloBase
     {
-        //[PrimaryKey, Unique, AutoIncrement]        
-        public int ID { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
     }
 }

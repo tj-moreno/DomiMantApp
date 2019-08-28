@@ -11,7 +11,9 @@ namespace DomiMantApp.VistasModelos
         {            
             Instancia = this;            
             this.Login = new LoginViewModel();
-            CargarMenu();
+
+            if(UsuarioActual!=null)
+                CargarMenu();
         }
         #endregion
         #region Propiedades
@@ -71,47 +73,47 @@ namespace DomiMantApp.VistasModelos
         #region Metodo
         public void CargarMenu()
         {
-            this.Menu = new ObservableCollection<MenuItemsViewModel>();
-            this.Menu.Add(new MenuItemsViewModel {
+            Menu = new ObservableCollection<MenuItemsViewModel>();
+            Menu.Add(new MenuItemsViewModel {
                 Icon = "ic_settings_Menu",
                 Pagina = "RegistroPage",
                 Titulo = "Ajustes de Cuenta"
             });
             switch (UsuarioActual.Tipo)
             {
-                case TipoUsuario.Cliente:
-                    this.Menu.Add(new MenuItemsViewModel
+                case (int)TipoUsuario.Cliente:
+                    Menu.Add(new MenuItemsViewModel
                     {
                         Icon = "ic_Vehiculo_Menu",
                         Pagina = "VehiculoPage",
                         Titulo = "Agregar Vehiculo"
                     });
-                    this.Menu.Add(new MenuItemsViewModel
+                    Menu.Add(new MenuItemsViewModel
                     {
                         Icon = "ic_Contacto_Menu",
                         Pagina = "DireccionPage",
                         Titulo = "Agregar Contacto"
                     });
                     break;
-                case TipoUsuario.Suplidor:
-                    this.Menu.Add(new MenuItemsViewModel {
+                case (int)TipoUsuario.Suplidor:
+                    Menu.Add(new MenuItemsViewModel {
                        Titulo="Agregar Cliente",
                        Pagina="ClientePage",
                        Icon= "ic_Cliente_Menu"
                     });
-                    this.Menu.Add(new MenuItemsViewModel {
+                    Menu.Add(new MenuItemsViewModel {
                         Titulo="Agregar Servicio",
                         Pagina="ServicioPage",
                         Icon= "ic_Servicio_Menu"
                     });
                     break;
             }
-            this.Menu.Add(new MenuItemsViewModel {
+            Menu.Add(new MenuItemsViewModel {
                 Titulo="Salir",
                 Pagina="LoginPage",
                 Icon= "ic_Menu_group_Salir"
             });
-        }
+        }        
         #endregion
         #region Singleton
         private static Moderador_De_Vistas Instancia;        

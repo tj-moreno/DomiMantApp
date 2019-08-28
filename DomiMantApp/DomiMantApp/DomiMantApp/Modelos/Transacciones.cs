@@ -1,16 +1,16 @@
 ﻿
 namespace DomiMantApp.Modelos
-{
+{    
     using System;
     using System.Collections.Generic;
 
     public class Transaccion:ModeloBase
-    {        
+    {
         public string NumeroTransaccion { get; set; }
         public string ClienteID { get; set; }
         public string SuplidorID { get; set; }
         public DateTime Fecha { get; set; }
-        public string Observaciones { get; set; }
+        public string Observaciones { get; set; }        
     }
 
     public class Transacciones : Transaccion

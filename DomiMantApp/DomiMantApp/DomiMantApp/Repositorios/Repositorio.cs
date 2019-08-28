@@ -9,7 +9,7 @@ namespace DomiMantApp.Repositorios
     using DomiMantApp.Modelos;
     using SQLite;
 
-    public class Repositorio<T> : IRepositorio<T> where T : ModeloBase, new()
+    public class Repositorio<T> : IRepositorio<T> where T: ModeloBase , new()
     {
         public string DBpaht;
 
@@ -27,7 +27,7 @@ namespace DomiMantApp.Repositorios
         {
             using (var _cn = new SQLiteConnection(this.DBpaht))
             {
-                var db = _cn.Table<T>().FirstOrDefault(t => t.ID.Equals(entidad.ID));
+                var db = _cn.Table<T>().FirstOrDefault(t => t.Id.Equals(entidad.Id));
 
                 if (db != null)
                 {
@@ -64,7 +64,7 @@ namespace DomiMantApp.Repositorios
         {
             using (var _cn = new SQLiteConnection(this.DBpaht))
             {
-                _cn.Delete(entidad.ID);
+                _cn.Delete(entidad);
             }
         }
 
@@ -72,7 +72,7 @@ namespace DomiMantApp.Repositorios
         {
             using (var _cn = new SQLiteConnection(this.DBpaht))
             {
-                var view = _cn.Table<T>().FirstOrDefault(t => t.ID.Equals(id));
+                var view = _cn.Table<T>().FirstOrDefault(t => t.Id.Equals(id));
                 if (view != null)
                     return view;
 

@@ -23,6 +23,7 @@ namespace DomiMantApp.Globals
             Servicios=6
         }
         public class TiposUsuario {
+            public int ID { get; set; }
             public TipoUsuario TipoID { get; set; }
             public string Descripcion { get; set; }
         }

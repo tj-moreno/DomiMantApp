@@ -114,7 +114,7 @@ namespace DomiMantApp.VistasModelos
                             break;
                         case Acciones.Modificar:
                             servicios = new Servicios {
-                                ID=servicios.ID,
+                                Id=servicios.Id,
                                 Codigo=this.Codigo,
                                 Descripcion=this.Descripcion,
                                 Garantia=this.Garantia,

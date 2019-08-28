@@ -84,6 +84,10 @@ namespace DomiMantApp.VistasModelos
                 Indicador = true;
                 if (ValidarCuenta())
                 {
+                    Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel();
+                    Moderador_De_Vistas.ObtenerInstancia().CargarMenu();
+                    Accion = Acciones.Modificar;
+
                     using (var repoUsuario= new Repositorio<Usuarios>(GetDbPath()))
                     {
                         UsuarioActual.EnSeccion = true;
@@ -91,14 +95,11 @@ namespace DomiMantApp.VistasModelos
                     }
                     switch (UsuarioActual.Tipo) 
                     {
-                        case TipoUsuario.Cliente:
-                            Accion = Acciones.Modificar;                            
-                            Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel();
+                        case (int)TipoUsuario.Cliente:                            
                             App.Current.MainPage=new ClienteMasterPage();
                             break;
-                        case TipoUsuario.Suplidor:
-                            Accion = Acciones.Modificar;
-                            Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel();
+                        case (int)TipoUsuario.Suplidor:
+                            
                             App.Current.MainPage= new MasterPage();
                             break;
                     }
@@ -122,59 +123,58 @@ namespace DomiMantApp.VistasModelos
         }
         private bool ValidarCuenta()
         {
-            return true;
-            //if (string.IsNullOrEmpty(Usuario))
-            //{
-            //    App.Current.MainPage.DisplayAlert(
-            //        "DomiMat Apps",
-            //        "El Usuario es requerido para poder acceder a la aplicacion.\nEn caso de no estar registrado,\n Pro favor Cree una cuenta e intente de nuevo.",
-            //        "Ok");
-            //    return false;
-            //}
-            //else
-            //{
-            //    using (var repoUsuario= new Repositorio<Usuarios>(GetDbPath()))
-            //    {
-            //        var user = ((List<Usuarios>)repoUsuario.Buscar(u => u.Equals(Usuario))).FirstOrDefault();
-            //        if (user == null)
-            //        {
-            //            App.Current.MainPage.DisplayAlert(
-            //                "DomiMant Apps",
-            //                $"El usuario {Usuario} es invalido\nPor favor asegurese de que los datos son correctos.",
-            //                "Ok");
-            //            return false;
-            //        }
-            //        else
-            //        {
-            //            if (string.IsNullOrEmpty(Clave))
-            //            {
-            //                App.Current.MainPage.DisplayAlert(
-            //                    "DomiMant Apps",
-            //                    "Debe digitar la clave de acceso.",
-            //                    "Ok");
-            //                return false;
-            //            }
-            //            else
-            //            {
-            //                if (!user.Contrasena.Equals(Clave))
-            //                {
-            //                    App.Current.MainPage.DisplayAlert(
-            //                        "DomiMant Apps",
-            //                        "Los datos digitados son erroneos, por favor valide la informacion suministrada e intente otra vez",
-            //                        "Ok");
-            //                    return false;
-            //                }
-            //                else
-            //                {
-            //                    UsuarioActual = user;
-            //                    return true;
-            //                }
-            //            }
-            //        }                    
-            //    }
-            //}
+            if (string.IsNullOrEmpty(Usuario))
+            {
+                App.Current.MainPage.DisplayAlert(
+                    "DomiMat Apps",
+                    "El Usuario es requerido para poder acceder a la aplicacion.\nEn caso de no estar registrado,\n Pro favor Cree una cuenta e intente de nuevo.",
+                    "Ok");
+                return false;
+            }
+            else
+            {
+                using (var repoUsuario = new Repositorio<Usuarios>(GetDbPath()))
+                {
+                    var user = ((List<Usuarios>)repoUsuario.Buscar(u => u.Codigo.Equals(Usuario))).FirstOrDefault();
+                    if (user == null)
+                    {
+                        App.Current.MainPage.DisplayAlert(
+                            "DomiMant Apps",
+                            $"El usuario {Usuario} es invalido\nPor favor asegurese de que los datos son correctos.",
+                            "Ok");
+                        return false;
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(Clave))
+                        {
+                            App.Current.MainPage.DisplayAlert(
+                                "DomiMant Apps",
+                                "Debe digitar la clave de acceso.",
+                                "Ok");
+                            return false;
+                        }
+                        else
+                        {
+                            if (!user.Contrasena.Equals(Clave))
+                            {
+                                App.Current.MainPage.DisplayAlert(
+                                    "DomiMant Apps",
+                                    "Los datos digitados son erroneos, por favor valide la informacion suministrada e intente otra vez",
+                                    "Ok");
+                                return false;
+                            }
+                            else
+                            {
+                                UsuarioActual = user;
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
         }
-        private async void CargarCuenta()
+        public async void CargarCuenta()
         {
             try
             {

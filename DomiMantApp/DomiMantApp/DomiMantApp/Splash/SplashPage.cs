@@ -56,15 +56,15 @@ namespace DomiMantApp.Splash
                 UsuarioActual = ((List<Usuarios>)repoUsuario.Buscar(u => u.EnSeccion.Equals(true))).FirstOrDefault();                
 
                 if (UsuarioActual != null)
-                {
+                {                    
                     Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel();
 
                     switch (UsuarioActual.Tipo)
                     {
-                        case TipoUsuario.Cliente:
+                        case (int)TipoUsuario.Cliente:                            
                             Application.Current.MainPage = new ClienteMasterPage();
                             break;
-                        case TipoUsuario.Suplidor:
+                        case (int)TipoUsuario.Suplidor:
                             Application.Current.MainPage = new MasterPage();
                             break;
                     }

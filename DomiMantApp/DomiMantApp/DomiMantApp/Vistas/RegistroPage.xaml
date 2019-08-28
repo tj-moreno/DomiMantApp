@@ -94,6 +94,7 @@
                     Title="--Seleccione su tipo de Acceso--"
                     SelectedItem="{Binding Tipo, Mode=TwoWay}"
                     ItemsSource="{Binding TipoItems, Mode=TwoWay}"
+                    SelectedIndex="{Binding Index, Mode=TwoWay}"
                     ItemDisplayBinding="{Binding Descripcion, Mode=TwoWay}"/>
                 <StackLayout
                     Margin="10,0"

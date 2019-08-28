@@ -14,6 +14,7 @@ namespace DomiMantApp.VistasModelos
     using System.Collections.Generic;
     using System.Linq;
     using Xamarin.Forms;
+    using DomiMantApp.Vistas;
 
     public class RegistroViewModel:ModeradorBase
     {
@@ -41,8 +42,9 @@ namespace DomiMantApp.VistasModelos
         private string emails;
         private string contrasena;
         private string cedula;
-        private string descripcion;
-        private TipoUsuario tipo;
+        private int index;
+        private TiposUsuario descripcion;
+        private TiposUsuario tipo;
         private List<TiposUsuario> tipositems;
         private bool enseccion;
         private bool recordar;
@@ -117,7 +119,15 @@ namespace DomiMantApp.VistasModelos
                 PasarValor(ref this.cedula, value);
             }
         }
-        public string Descripcion {
+        public int Index {
+            get {
+                return this.index;
+            }
+            set {
+                PasarValor(ref this.index, value);
+            }
+        }
+        public TiposUsuario Descripcion {
             get {
                 return this.descripcion;
             }
@@ -125,7 +135,7 @@ namespace DomiMantApp.VistasModelos
                 PasarValor(ref this.descripcion, value);
             }
         }
-        public TipoUsuario Tipo {
+        public TiposUsuario Tipo {
             get {
                 return this.tipo;
             }
@@ -281,17 +291,18 @@ namespace DomiMantApp.VistasModelos
                             Emails = this.Emails,
                             EnSeccion = this.EnSeccion,
                             Recordar = this.Recordar,
-                            Tipo = this.Tipo
+                            Tipo = (int)this.Tipo.TipoID
                         };
 
                         repo.Agregar(Usuario);
-                        Moderador_De_Vistas.ObtenerInstancia().Login = new LoginViewModel();
+                        Moderador_De_Vistas.ObtenerInstancia().Login = new LoginViewModel();                       
                         Application.Current.MainPage.Navigation.PopAsync();
+                        Moderador_De_Vistas.ObtenerInstancia().Login.CargarCuenta();
                         break;
                     case Acciones.Modificar:
                         Usuario = new Usuarios
                         {
-                            ID = this.ID,
+                            Id = this.ID,
                             Codigo = this.Codigo,
                             Nombres = this.Nombres,
                             Apellidos = this.Apellidos,
@@ -300,7 +311,7 @@ namespace DomiMantApp.VistasModelos
                             Emails = this.Emails,
                             EnSeccion = this.EnSeccion,
                             Recordar = this.Recordar,
-                            Tipo = this.Tipo
+                            Tipo = (int)this.Tipo.TipoID
                         };
 
                         repo.Actualizar(Usuario);
@@ -313,7 +324,7 @@ namespace DomiMantApp.VistasModelos
             if (UsuarioActual!=null)
             {
                 this.Usuario = UsuarioActual;
-                this.ID = UsuarioActual.ID;
+                this.ID = UsuarioActual.Id;
                 this.Codigo = UsuarioActual.Codigo;
                 this.Nombres = UsuarioActual.Nombres;
                 this.Apellidos = UsuarioActual.Apellidos;
@@ -322,8 +333,9 @@ namespace DomiMantApp.VistasModelos
                 this.Emails = UsuarioActual.Emails;
                 this.EnSeccion = UsuarioActual.EnSeccion;
                 this.Recordar = UsuarioActual.Recordar;
-                this.Descripcion = TipoItems.FirstOrDefault(t => t.TipoID.Equals(UsuarioActual.Tipo)).Descripcion;
-                this.Tipo = TipoItems.FirstOrDefault(t => t.TipoID.Equals(UsuarioActual.Tipo)).TipoID;
+                this.Descripcion = TipoItems.FirstOrDefault(t => t.ID.Equals(UsuarioActual.Tipo));
+                this.Tipo = TipoItems.FirstOrDefault(t => t.ID.Equals(UsuarioActual.Tipo));
+                this.Index = Tipo.ID-1;
                 this.FechaNacimiento = UsuarioActual.FechaNacimiento;
             }
         }
@@ -351,6 +363,8 @@ namespace DomiMantApp.VistasModelos
                 {
                     repo.Eliminar(Usuario);
                     repo.Dispose();
+                    Moderador_De_Vistas.ObtenerInstancia().Login = new LoginViewModel();
+                    Application.Current.MainPage = new NavigationPage(new LoginPage());
                 }
             }
             catch (Exception ex)
@@ -370,7 +384,7 @@ namespace DomiMantApp.VistasModelos
                     await Application.Current.MainPage.Navigation.PopAsync();
                     break;
                 case Acciones.Modificar:
-                    await Application.Current.MainPage.Navigation.PopAsync();
+                    await App.Navigator.PopAsync();
                     break;
             }
         }

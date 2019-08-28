@@ -132,7 +132,7 @@ namespace DomiMantApp.VistasModelos
                     case Acciones.Agregar:
                         Trans.DetalleTransaccion.Add(new Detalle_Transaccion
                         {
-                            TransID = this.Trans.ID,
+                            TransID = this.Trans.Id,
                             VehiculoID = this.VehiculoID,
                             ServicioID = this.ServicioID,
                             Descripcion = this.Descripcion,

@@ -1,6 +1,8 @@
 ﻿
+
 namespace DomiMantApp.Modelos
-{    
+{   
+
     public class Vehiculos:ModeloBase
     {
         public string UsuarioID { get; set; }

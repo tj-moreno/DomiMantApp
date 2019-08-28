@@ -8,7 +8,7 @@ namespace DomiMantApp.Modelos
         public string Descripcion { get; set; }
         public double Precio { get; set; }
         public bool Garantia { get; set; }
-        public double Tiempogarantia { get; set; }
+        public double Tiempogarantia { get; set; }        
     }
 
     public class ServiciosView: Servicios

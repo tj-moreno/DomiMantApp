@@ -16,7 +16,7 @@ public class MonoPackageManager_Resources {
 		"GalaSoft.MvvmLight.Extras.dll",
 		"GalaSoft.MvvmLight.Platform.dll",
 		"SkiaSharp.dll",
-		"SQLiteNetStandard.dll",
+		"SQLite-net.dll",
 		"SQLitePCLRaw.batteries_green.dll",
 		"SQLitePCLRaw.batteries_v2.dll",
 		"SQLitePCLRaw.core.dll",

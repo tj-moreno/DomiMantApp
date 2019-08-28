@@ -18,49 +18,10 @@ namespace DomiMantApp.Globals
         {
             var TipUs = new List<TiposUsuario>();
 
-            TipUs.Add(new TiposUsuario { TipoID = TipoUsuario.Cliente, Descripcion = "Cliente" });
-            TipUs.Add(new TiposUsuario { TipoID = TipoUsuario.Suplidor, Descripcion = "Suplidor" });
+            TipUs.Add(new TiposUsuario { ID=1,TipoID = TipoUsuario.Cliente, Descripcion = "Cliente" });
+            TipUs.Add(new TiposUsuario { ID=2,TipoID = TipoUsuario.Suplidor, Descripcion = "Suplidor" });
 
             return TipUs;
         }
-
-        //public static List<OpcioneCuentas> GetOpciones(TipoUsuario tipo)
-        //{
-        //    var Opus = new List<OpcioneCuentas>();
-
-        //    switch (tipo)
-        //    {
-        //        case TipoUsuario.Cliente:
-        //            Opus.Add(new OpcioneCuentas {
-        //                OpcionId = OpcionesdeCuenta.Direcciones,
-        //                Descripcion = "Direcciones y Contactos"
-        //            });
-        //            Opus.Add(new OpcioneCuentas {
-        //                OpcionId=OpcionesdeCuenta.Suplidores,
-        //                Descripcion="Suplidores de Servicios"
-        //            });
-        //            Opus.Add(new OpcioneCuentas {
-        //                OpcionId=OpcionesdeCuenta.Vehiculos,
-        //                Descripcion="Vehiculos"
-        //            });
-        //            break;
-        //        case TipoUsuario.Suplidor:
-        //            Opus.Add(new OpcioneCuentas {
-        //                OpcionId=OpcionesdeCuenta.Servicios,
-        //                Descripcion="Productos y Servicios"
-        //            });
-        //            Opus.Add(new OpcioneCuentas {
-        //                OpcionId=OpcionesdeCuenta.Clientes,
-        //                Descripcion="Clientes"
-        //            });
-        //            Opus.Add(new OpcioneCuentas {
-        //                OpcionId=OpcionesdeCuenta.Transacciones,
-        //                Descripcion="Transacciones"
-        //            });
-        //            break;                
-        //    }
-
-        //    return Opus;
-        //}
     }
 }

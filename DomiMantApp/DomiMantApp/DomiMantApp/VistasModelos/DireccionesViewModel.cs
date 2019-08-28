@@ -157,7 +157,7 @@ namespace DomiMantApp.VistasModelos
         private IEnumerable<DireccionesItemViewModel> ToDireccionesViewModel()
         {
             return this.lstdireccion.Select(d=> new DireccionesItemViewModel() {
-                ID=d.ID,
+                Id=d.Id,
                 UsuarioID=d.UsuarioID,
                 Longitud=d.Longitud,
                 Latitud=d.Latitud,
