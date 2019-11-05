@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DomiMantApp.Vistas.RegistroPage"
+             xmlns:beh="clr-namespace:DomiMantApp.Behavior"
              BindingContext="{Binding Moderador, Source={StaticResource Localizador}}"
              Icon="ic_action_General"
              Title="General">
@@ -35,22 +36,42 @@
                     HorizontalOptions="StartAndExpand"/>
                 <Entry
                     Placeholder="EJ: jmoreno"
-                    Text="{Binding Codigo, Mode=TwoWay}"
+                    Text="{Binding Codigo, Mode=TwoWay}"                    
                     IsEnabled="True"
-                    MaxLength="11"/>
+                    MaxLength="11">
+                    <Entry.Behaviors>
+                        <beh:RequeridoBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
                 <Label
                     FontAttributes="Bold"
                     Text="Nombres :"
                     HorizontalOptions="StartAndExpand"/>
                 <Entry
                     Placeholder="Nombres..."
-                    Text="{Binding Nombres, Mode=TwoWay}"/>
+                    Text="{Binding Nombres, Mode=TwoWay}">
+                    <Entry.Keyboard>
+                        <Keyboard x:FactoryMethod="Create">
+                            <x:Arguments>
+                                <KeyboardFlags>CapitalizeCharacter</KeyboardFlags>
+                            </x:Arguments>
+                        </Keyboard>
+                    </Entry.Keyboard>
+                </Entry>
                 <Label
                     FontAttributes="Bold"
                     Text="Apellidos :"/>
                 <Entry
                     Text="{Binding Apellidos, Mode=TwoWay}"
-                    Placeholder="Apellidos..."/>
+                    Placeholder="Apellidos...">
+                    <Entry.Keyboard>
+                        <Keyboard x:FactoryMethod="Create">
+                            <x:Arguments>
+                                <KeyboardFlags>CapitalizeCharacter</KeyboardFlags>
+                            </x:Arguments>
+                        </Keyboard>
+                    </Entry.Keyboard>
+                </Entry>
                 <Label
                     FontAttributes="Bold"
                     Text="Cédula :"
@@ -58,13 +79,22 @@
                 <Entry
                     Text="{Binding Cedula, Mode=TwoWay}"
                     Placeholder="000-0000000-0"
-                    IsVisible="{Binding VerCedula, Mode=TwoWay}"/>
+                    IsVisible="{Binding VerCedula, Mode=TwoWay}">
+                    <Entry.Behaviors>
+                        <beh:MascaraEntryBehavior Mascara="000-0000000-0"/>
+                    </Entry.Behaviors>
+                </Entry>
                 <Label
                     FontAttributes="Bold"
                     Text="Correo Electronico :"/>
                 <Entry
                     Text="{Binding Emails, Mode=TwoWay}"
-                    Placeholder="jperez@correo.com.do"/>
+                    Placeholder="jperez@correo.com.do">
+                    <Entry.Behaviors>
+                        <beh:EmailsEntryBehavior/>
+                    </Entry.Behaviors>
+                </Entry>
+
                 <Label
                     FontAttributes="Bold"
                     Text="Contraseña :"/>

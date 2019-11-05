@@ -9,12 +9,12 @@ using Xamarin.Forms.Xaml;
 
 namespace DomiMantApp.Vistas
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ClientePage : ContentPage
-	{
-		public ClientePage ()
-		{
-			InitializeComponent ();
-		}
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ClientePage : ContentPage
+    {
+        public ClientePage()
+        {
+            InitializeComponent();
+        }
+    }
 }

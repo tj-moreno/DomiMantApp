@@ -59,7 +59,8 @@
                 </StackLayout>
                 <ActivityIndicator
                     VerticalOptions="CenterAndExpand"
-                    IsRunning="{Binding Indicador, Mode=TwoWay}"/>
+                    IsRunning="True"
+                    IsVisible="{Binding Indicador, Mode=TwoWay}"/>
                 <Label
                     VerticalOptions="CenterAndExpand"
                     HorizontalOptions="Center"

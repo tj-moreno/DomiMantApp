@@ -17,12 +17,10 @@ namespace DomiMantApp.Modelos
         public bool EnSeccion { get; set; }
         public bool Recordar { get; set; }        
     }
-
     public class Suplidor : Usuarios
     {
         public List<Clientes> Clientes { get; set; }
     }
-
     public class Cliente : Usuarios
     {
         public List<Vehiculos> Vehiculos { get; set; }

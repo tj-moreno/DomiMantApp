@@ -49,7 +49,7 @@ namespace DomiMantApp.VistasModelos
                 case "ClientePage":
                     Accion = Acciones.Agregar;
                     Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel();
-                    App.Navigator.PushAsync(new ClientePage());
+                    App.Navigator.PushAsync(new RegistroPage());
                     break;
                 case "ServicioPage":
                     Accion = Acciones.Agregar;

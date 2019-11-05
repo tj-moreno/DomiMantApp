@@ -8,31 +8,29 @@ namespace DomiMantApp.Splash
     using Xamarin.Forms;
     using static Globals.Variables;
     using static Globals.Funciones;
-    using DomiMantApp.Vistas;
-    using FFImageLoading.Forms;
+    using DomiMantApp.Vistas;    
     using System.Collections.Generic;
     using System.Linq;
+    using Lottie.Forms;
 
     public class SplashPage : ContentPage
     {
         //Image SplashImage;
-        CachedImage img;
+        AnimationView img;
 
         public SplashPage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             var sub = new AbsoluteLayout();
 
-            img = new CachedImage {
-                Source = "icon",
-                WidthRequest = 250,
-                HeightRequest = 250,
-                RetryCount = 3,
-                RetryDelay = 100,
-                LoadingPlaceholder = "icon"
-                //DownsampleToViewSize=true
+            img = new AnimationView {
+                Animation= "loading-animation.json",
+                Loop=true,
+                AutoPlay=true,
+                HeightRequest=250,
+                WidthRequest=250
             };
-            
+                        
             AbsoluteLayout.SetLayoutFlags(img,
                 AbsoluteLayoutFlags.PositionProportional);
 

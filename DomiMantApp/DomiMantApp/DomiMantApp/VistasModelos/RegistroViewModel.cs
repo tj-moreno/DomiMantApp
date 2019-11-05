@@ -291,12 +291,21 @@ namespace DomiMantApp.VistasModelos
                             Emails = this.Emails,
                             EnSeccion = this.EnSeccion,
                             Recordar = this.Recordar,
-                            Tipo = (int)this.Tipo.TipoID
+                            Tipo = (int)this.Tipo.TipoID                            
                         };
 
                         repo.Agregar(Usuario);
-                        Moderador_De_Vistas.ObtenerInstancia().Login = new LoginViewModel();                       
-                        Application.Current.MainPage.Navigation.PopAsync();
+                        Moderador_De_Vistas.ObtenerInstancia().Login = new LoginViewModel();
+
+                        if (UsuarioActual != null)
+                        {
+                            App.Navigator.PopAsync();
+                        }
+                        else
+                        { 
+                            Application.Current.MainPage.Navigation.PopAsync();
+                        }
+                        
                         Moderador_De_Vistas.ObtenerInstancia().Login.CargarCuenta();
                         break;
                     case Acciones.Modificar:
@@ -315,6 +324,7 @@ namespace DomiMantApp.VistasModelos
                         };
 
                         repo.Actualizar(Usuario);
+                        UsuarioActual = Usuario;
                         break;
                 }
             }

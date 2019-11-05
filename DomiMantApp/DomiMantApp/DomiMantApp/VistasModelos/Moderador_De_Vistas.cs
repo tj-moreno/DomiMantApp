@@ -106,6 +106,11 @@ namespace DomiMantApp.VistasModelos
                         Pagina="ServicioPage",
                         Icon= "ic_Servicio_Menu"
                     });
+                    Menu.Add(new MenuItemsViewModel {
+                        Titulo = "Agregar Transacción",
+                        Pagina = "TransaccionPage",
+                        Icon = "ic_Transaccion"
+                    });
                     break;
             }
             Menu.Add(new MenuItemsViewModel {
