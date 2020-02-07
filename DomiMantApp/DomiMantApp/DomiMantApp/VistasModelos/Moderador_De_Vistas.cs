@@ -74,14 +74,32 @@ namespace DomiMantApp.VistasModelos
         public void CargarMenu()
         {
             Menu = new ObservableCollection<MenuItemsViewModel>();
-            Menu.Add(new MenuItemsViewModel {
-                Icon = "ic_settings_Menu",
-                Pagina = "RegistroPage",
-                Titulo = "Ajustes de Cuenta"
-            });
+            //Menu.Add(new MenuItemsViewModel
+            //{
+            //    Icon = "ic_Home_Menu",
+            //    Pagina = "ClienteMasterPage",
+            //    Titulo = "Inicio"
+            //});
+            //Menu.Add(new MenuItemsViewModel {
+            //    Icon = "ic_settings_Menu",
+            //    Pagina = "RegistroPage",
+            //    Titulo = "Ajustes de Cuenta"
+            //});
             switch (UsuarioActual.Tipo)
             {
                 case (int)TipoUsuario.Cliente:
+                    Menu.Add(new MenuItemsViewModel
+                    {
+                        Icon = "ic_Home_Menu",
+                        Pagina = "ClienteMasterPage",
+                        Titulo = "Inicio"
+                    });
+                    Menu.Add(new MenuItemsViewModel
+                    {
+                        Icon = "ic_settings_Menu",
+                        Pagina = "RegistroPage",
+                        Titulo = "Mi Cuenta"
+                    });
                     Menu.Add(new MenuItemsViewModel
                     {
                         Icon = "ic_Vehiculo_Menu",
@@ -96,6 +114,18 @@ namespace DomiMantApp.VistasModelos
                     });
                     break;
                 case (int)TipoUsuario.Suplidor:
+                    Menu.Add(new MenuItemsViewModel
+                    {
+                        Icon = "ic_Home_Menu",
+                        Pagina = "MasterPage",
+                        Titulo = "Inicio"
+                    });
+                    Menu.Add(new MenuItemsViewModel
+                    {
+                        Icon = "ic_settings_Menu",
+                        Pagina = "RegistroPage",
+                        Titulo = "Mi Cuenta"
+                    });
                     Menu.Add(new MenuItemsViewModel {
                        Titulo="Agregar Cliente",
                        Pagina="ClientePage",

@@ -296,17 +296,17 @@ namespace DomiMantApp.VistasModelos
 
                         repo.Agregar(Usuario);
                         Moderador_De_Vistas.ObtenerInstancia().Login = new LoginViewModel();
-
+                        Moderador_De_Vistas.ObtenerInstancia().Login.CargarCuenta();
                         if (UsuarioActual != null)
                         {
-                            App.Navigator.PopAsync();
+                           App.Navigator.PopAsync();
+                            //Application.Current.MainPage.Navigation.PopAsync();
                         }
                         else
                         { 
                             Application.Current.MainPage.Navigation.PopAsync();
                         }
-                        
-                        Moderador_De_Vistas.ObtenerInstancia().Login.CargarCuenta();
+                                                
                         break;
                     case Acciones.Modificar:
                         Usuario = new Usuarios

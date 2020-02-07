@@ -8,9 +8,10 @@ namespace DomiMantApp.Vistas
     public partial class ClienteMasterPage : MasterDetailPage
     {
         public ClienteMasterPage()
-        {
+        {            
             InitializeComponent();
-            App.Navigator = Navigator;
+            App.MDPageC = this;
+            App.Navigator = Navigator;            
         }
     }
 }

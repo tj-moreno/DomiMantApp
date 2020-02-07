@@ -209,4 +209,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\ic_Transaccion.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_Home_Menu.png" />
+  </ItemGroup>
 </Project>

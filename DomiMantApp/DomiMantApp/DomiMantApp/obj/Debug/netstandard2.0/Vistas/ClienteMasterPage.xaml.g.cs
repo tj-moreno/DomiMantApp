@@ -17,11 +17,15 @@ namespace DomiMantApp.Vistas {
     public partial class ClienteMasterPage : global::Xamarin.Forms.MasterDetailPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::DomiMantApp.Vistas.MenuPage mPage;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.NavigationPage Navigator;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(ClienteMasterPage));
+            mPage = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::DomiMantApp.Vistas.MenuPage>(this, "mPage");
             Navigator = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.NavigationPage>(this, "Navigator");
         }
     }

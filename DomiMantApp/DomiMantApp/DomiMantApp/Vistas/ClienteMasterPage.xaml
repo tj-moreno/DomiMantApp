@@ -6,7 +6,7 @@
     xmlns:pages="clr-namespace:DomiMantApp.Vistas">
 
     <MasterDetailPage.Master>
-        <pages:MenuPage/>
+        <pages:MenuPage x:Name="mPage"/>
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
         <NavigationPage x:Name="Navigator">

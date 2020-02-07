@@ -23,6 +23,9 @@ namespace DomiMantApp
             get;
             internal set;
         }
+
+        public static MasterDetailPage MDPageC { get; set; }
+        public static MasterDetailPage MDPageS { get; set; }
         #endregion
         #region Metodos
         protected override void OnStart()

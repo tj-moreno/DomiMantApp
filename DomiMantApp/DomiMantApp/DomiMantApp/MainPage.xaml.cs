@@ -15,7 +15,7 @@ namespace DomiMantApp
     {
         public MainPage()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
     }
 }

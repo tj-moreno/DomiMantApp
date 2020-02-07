@@ -53,7 +53,7 @@
                     <Entry.Keyboard>
                         <Keyboard x:FactoryMethod="Create">
                             <x:Arguments>
-                                <KeyboardFlags>CapitalizeCharacter</KeyboardFlags>
+                                <KeyboardFlags>CapitalizeWord</KeyboardFlags>
                             </x:Arguments>
                         </Keyboard>
                     </Entry.Keyboard>
@@ -67,7 +67,7 @@
                     <Entry.Keyboard>
                         <Keyboard x:FactoryMethod="Create">
                             <x:Arguments>
-                                <KeyboardFlags>CapitalizeCharacter</KeyboardFlags>
+                                <KeyboardFlags>CapitalizeWord</KeyboardFlags>
                             </x:Arguments>
                         </Keyboard>
                     </Entry.Keyboard>
@@ -89,7 +89,8 @@
                     Text="Correo Electronico :"/>
                 <Entry
                     Text="{Binding Emails, Mode=TwoWay}"
-                    Placeholder="jperez@correo.com.do">
+                    Placeholder="jperez@correo.com.do"
+                    Keyboard="Email">
                     <Entry.Behaviors>
                         <beh:EmailsEntryBehavior/>
                     </Entry.Behaviors>

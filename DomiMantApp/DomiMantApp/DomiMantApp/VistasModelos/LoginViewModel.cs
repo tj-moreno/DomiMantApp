@@ -118,7 +118,8 @@ namespace DomiMantApp.VistasModelos
         private void Registrar()
         {
             Accion = Acciones.Agregar;
-            Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel();                        
+            Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel();
+            UsuarioActual = null;
             Application.Current.MainPage.Navigation.PushAsync(new RegistroPage());
         }
         private bool ValidarCuenta()

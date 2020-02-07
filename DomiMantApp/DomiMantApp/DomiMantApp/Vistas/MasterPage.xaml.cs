@@ -6,10 +6,11 @@ namespace DomiMantApp.Vistas
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MasterPage : MasterDetailPage
-	{
+	{       
 		public MasterPage ()
 		{
             InitializeComponent();
+            App.MDPageS = this;
             App.Navigator = Navigator;
         }
 	}
