@@ -69,6 +69,10 @@ namespace DomiMantApp.VistasModelos
             get;
             set;
         }
+        public ClientesViewmodel Clientes {
+            get;
+            set;
+        }
         #endregion
         #region Metodo
         public void CargarMenu()

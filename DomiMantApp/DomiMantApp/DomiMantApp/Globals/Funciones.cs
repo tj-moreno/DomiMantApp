@@ -13,7 +13,6 @@ namespace DomiMantApp.Globals
 
             return rutaDb;
         }
-
         public static List<TiposUsuario> GetTiposUsuarios()
         {
             var TipUs = new List<TiposUsuario>();
@@ -22,6 +21,15 @@ namespace DomiMantApp.Globals
             TipUs.Add(new TiposUsuario { ID=2,TipoID = TipoUsuario.Suplidor, Descripcion = "Suplidor" });
 
             return TipUs;
+        }
+        public static List<TipoRegistro> GetTipoRegistros() {
+            var tipReg = new List<TipoRegistro>();
+            
+            tipReg.Add(new TipoRegistro { ID = 1, TipoID = TipoRegistroUsuarios.AgregarSuplidor, Descripcion = "Agregar Suplidor"});
+            tipReg.Add(new TipoRegistro { ID = 2, TipoID = TipoRegistroUsuarios.AgregarCliente, Descripcion = "Agregar Cliente"});
+            tipReg.Add(new TipoRegistro { ID = 3, TipoID = TipoRegistroUsuarios.AgregarUsuario, Descripcion = "Agregar Usuario"});
+
+            return tipReg;
         }
     }
 }

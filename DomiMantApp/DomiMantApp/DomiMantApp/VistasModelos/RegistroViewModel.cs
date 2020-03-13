@@ -15,13 +15,14 @@ namespace DomiMantApp.VistasModelos
     using System.Linq;
     using Xamarin.Forms;
     using DomiMantApp.Vistas;
-
     public class RegistroViewModel:ModeradorBase
     {
         #region Constructor
-        public RegistroViewModel()
+        public RegistroViewModel(int IDRg)
         {
+            this._id = IDRg;
             TipoItems = GetTiposUsuarios();
+            TipoReg = GetTipoRegistros();
             
             if (Accion.Equals(Acciones.Modificar))
             {
@@ -35,6 +36,7 @@ namespace DomiMantApp.VistasModelos
         }
         #endregion
         #region Atributos
+        private int _id;
         private int id;
         private string codigo;
         private string nombres;
@@ -46,6 +48,7 @@ namespace DomiMantApp.VistasModelos
         private TiposUsuario descripcion;
         private TiposUsuario tipo;
         private List<TiposUsuario> tipositems;
+        private List<TipoRegistro> tiporeg;
         private bool enseccion;
         private bool recordar;
         private DateTime fechanacimiento;
@@ -53,6 +56,7 @@ namespace DomiMantApp.VistasModelos
         private List<OpcioneCuentas> opcioneslst;
         private ObservableCollection<OpcionesCuentasItemsViewModel> opcionescuentas;
         Usuarios Usuario;
+        Clientes Cliente;
         private bool verfecha;
         private bool vercedula;
         private bool verbtnborrarcuenta;
@@ -60,6 +64,7 @@ namespace DomiMantApp.VistasModelos
         private bool verdirecciones;
         private bool verservicios;
         private bool vervehiculos;
+        private bool verpassword;
         private bool veropciones;
         #endregion
         #region Propiedades
@@ -149,6 +154,14 @@ namespace DomiMantApp.VistasModelos
             }
             set {
                 PasarValor(ref this.tipositems, value);
+            }
+        }
+        public List<TipoRegistro> TipoReg {
+            get { 
+                return this.tiporeg; 
+            }
+            set { 
+                PasarValor(ref this.tiporeg, value); 
             }
         }
         public string ConfirmarContrasena {
@@ -256,6 +269,12 @@ namespace DomiMantApp.VistasModelos
                 PasarValor(ref this.verservicios, value);
             }
         }
+        public bool VerPassWord { 
+        get { return this.verpassword; }
+            set {
+                PasarValor(ref this.verpassword, value);
+            }
+        }
         #endregion    
         #region Comandos
         public ICommand btnGuardar {
@@ -277,56 +296,17 @@ namespace DomiMantApp.VistasModelos
         #region Metodos
         private void GuardarRegistro()
         {
-            using (var repo = new Repositorio<Usuarios>(GetDbPath()))
+            switch (_id)
             {
-                switch (Accion)
-                {
-                    case Acciones.Agregar:
-                        Usuario = new Usuarios
-                        {
-                            Codigo = this.Codigo,
-                            Nombres = this.Nombres,
-                            Apellidos = this.Apellidos,
-                            Contrasena = this.Contrasena,
-                            Emails = this.Emails,
-                            EnSeccion = this.EnSeccion,
-                            Recordar = this.Recordar,
-                            Tipo = (int)this.Tipo.TipoID                            
-                        };
-
-                        repo.Agregar(Usuario);
-                        Moderador_De_Vistas.ObtenerInstancia().Login = new LoginViewModel();
-                        Moderador_De_Vistas.ObtenerInstancia().Login.CargarCuenta();
-                        if (UsuarioActual != null)
-                        {
-                           App.Navigator.PopAsync();
-                            //Application.Current.MainPage.Navigation.PopAsync();
-                        }
-                        else
-                        { 
-                            Application.Current.MainPage.Navigation.PopAsync();
-                        }
-                                                
-                        break;
-                    case Acciones.Modificar:
-                        Usuario = new Usuarios
-                        {
-                            Id = this.ID,
-                            Codigo = this.Codigo,
-                            Nombres = this.Nombres,
-                            Apellidos = this.Apellidos,
-                            Contrasena = this.Contrasena,
-                            Cedula=this.Cedula,
-                            Emails = this.Emails,
-                            EnSeccion = this.EnSeccion,
-                            Recordar = this.Recordar,
-                            Tipo = (int)this.Tipo.TipoID
-                        };
-
-                        repo.Actualizar(Usuario);
-                        UsuarioActual = Usuario;
-                        break;
-                }
+                case (int)TipoRegistroUsuarios.AgregarUsuario:
+                    GuardarRegUsuario();
+                    break;
+                case (int)TipoRegistroUsuarios.AgregarCliente:
+                    GuardarRegCliente();
+                    break;
+                case (int)TipoRegistroUsuarios.AgregarSuplidor:
+                    GuardarRegSuplidor();
+                    break;
             }
         }
         private void MostrarRegistro()
@@ -351,6 +331,22 @@ namespace DomiMantApp.VistasModelos
         }
         private void MostrarControlesOpcionales(bool value)
         {
+            VerPassWord = !value;
+
+            switch (this._id)
+            {
+                case (int)TipoRegistroUsuarios.AgregarUsuario:
+                    
+                    break;
+
+                case (int)TipoRegistroUsuarios.AgregarCliente:
+                    VerPassWord =value;
+                    break;
+
+                case (int)TipoRegistroUsuarios.AgregarSuplidor:
+                    break;
+            }
+
             VerFecha = value;
             VerCedula = value;
             VerBtnBorrarCuenta = value;
@@ -411,6 +407,93 @@ namespace DomiMantApp.VistasModelos
 
                 ConfirmarContrasena = "";
             }
+        }
+
+        private void GuardarRegUsuario()
+        {
+            using (var repo = new Repositorio<Usuarios>(GetDbPath()))
+            {
+                Usuario = new Usuarios
+                {
+                    Codigo = this.Codigo,
+                    Nombres = this.Nombres,
+                    Apellidos = this.Apellidos,
+                    Contrasena = this.Contrasena,
+                    Emails = this.Emails,
+                    EnSeccion = this.EnSeccion,
+                    Recordar = this.Recordar,
+                    Tipo = (int)this.Tipo.TipoID
+                };
+
+                switch (Accion)
+                {
+                    case Acciones.Agregar:                                    
+                        repo.Agregar(Usuario);
+
+                        Moderador_De_Vistas.ObtenerInstancia().Login = new LoginViewModel();
+                        Moderador_De_Vistas.ObtenerInstancia().Login.CargarCuenta();
+                        if (UsuarioActual != null)
+                        {
+                            Application.Current.MainPage = (new NavigationPage(new LoginPage()));
+                        }
+                        else
+                        {
+                            Application.Current.MainPage.Navigation.PopAsync();
+                        }                        
+                        break;                                       
+                    case Acciones.Modificar:
+                        Usuario.Id = this.ID;
+                        //Usuario = new Usuarios
+                        //{
+                        //    Id = this.ID,
+                        //    Codigo = this.Codigo,
+                        //    Nombres = this.Nombres,
+                        //    Apellidos = this.Apellidos,
+                        //    Contrasena = this.Contrasena,
+                        //    Cedula = this.Cedula,
+                        //    Emails = this.Emails,
+                        //    EnSeccion = this.EnSeccion,
+                        //    Recordar = this.Recordar,
+                        //    Tipo = (int)this.Tipo.TipoID
+                        //};
+
+                        repo.Actualizar(Usuario);
+                        UsuarioActual = Usuario;
+                        break;
+                }
+            }
+        }
+        private void GuardarRegCliente() {
+
+            using (var repo = new Repositorio<Clientes>(GetDbPath()))
+            {
+                Cliente = new Clientes
+                {
+                    Codigo = this.Codigo,
+                    Nombres = this.Nombres,
+                    Apellidos = this.Apellidos,
+                    MecanicoID = UsuarioActual.Codigo,
+                    Emails = this.Emails,
+                    Cedula = this.Cedula
+                };
+
+                switch (Accion)
+                {
+                    case Acciones.Agregar:
+                        repo.Agregar(Cliente);
+                        App.Navigator.PopAsync();
+                        break;
+
+                    case Acciones.Modificar:
+                        Cliente.Id = this.id;
+                        repo.Actualizar(Cliente);
+                        App.Navigator.PopAsync();
+                        break;
+                }
+            }        
+        }
+        private void GuardarRegSuplidor() { 
+        
         }
         #endregion
     }

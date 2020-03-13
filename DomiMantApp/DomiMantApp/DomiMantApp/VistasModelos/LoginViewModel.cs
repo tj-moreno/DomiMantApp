@@ -84,7 +84,7 @@ namespace DomiMantApp.VistasModelos
                 Indicador = true;
                 if (ValidarCuenta())
                 {
-                    Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel();
+                    Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel((int)TipoRegistroUsuarios.AgregarUsuario);
                     Moderador_De_Vistas.ObtenerInstancia().CargarMenu();
                     Accion = Acciones.Modificar;
 
@@ -118,8 +118,9 @@ namespace DomiMantApp.VistasModelos
         private void Registrar()
         {
             Accion = Acciones.Agregar;
-            Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel();
+            Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel((int)TipoRegistroUsuarios.AgregarUsuario);
             UsuarioActual = null;
+            //App.Navigator.PushAsync(new RegistroPage());
             Application.Current.MainPage.Navigation.PushAsync(new RegistroPage());
         }
         private bool ValidarCuenta()

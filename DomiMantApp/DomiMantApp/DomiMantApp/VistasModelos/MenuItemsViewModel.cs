@@ -39,7 +39,7 @@ namespace DomiMantApp.VistasModelos
                     break;
                 case "RegistroPage":
                     Accion = Acciones.Modificar;
-                    Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel();
+                    Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel((int)TipoRegistroUsuarios.AgregarUsuario);
                     Hidemenu();
                     App.Navigator.CurrentPage.Navigation.PushAsync(new RegistroPage());
                     break;
@@ -57,7 +57,7 @@ namespace DomiMantApp.VistasModelos
                     break;
                 case "ClientePage":
                     Accion = Acciones.Agregar;
-                    Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel();
+                    Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel((int)TipoRegistroUsuarios.AgregarCliente);
                     Hidemenu();
                     App.Navigator.CurrentPage.Navigation.PushAsync(new RegistroPage());
                     break;
@@ -75,7 +75,7 @@ namespace DomiMantApp.VistasModelos
                         repoUsuario.Dispose();
                     }
                     Moderador_De_Vistas.ObtenerInstancia().Login = new LoginViewModel();
-                    Application.Current.MainPage = new LoginPage();
+                    Application.Current.MainPage = new  NavigationPage(new LoginPage());
                     break;
             }
         }

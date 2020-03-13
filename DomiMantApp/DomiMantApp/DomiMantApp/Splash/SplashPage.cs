@@ -55,7 +55,7 @@ namespace DomiMantApp.Splash
 
                 if (UsuarioActual != null)
                 {                    
-                    Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel();
+                    Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel((int)TipoRegistroUsuarios.AgregarUsuario);
 
                     switch (UsuarioActual.Tipo)
                     {

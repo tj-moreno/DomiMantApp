@@ -95,21 +95,24 @@
                         <beh:EmailsEntryBehavior/>
                     </Entry.Behaviors>
                 </Entry>
-
                 <Label
                     FontAttributes="Bold"
-                    Text="Contraseña :"/>
+                    Text="Contraseña :"
+                    IsVisible="{Binding VerPassWord, Mode=TwoWay}"/>
                 <Entry
                     Text="{Binding Contrasena, Mode=TwoWay}"
                     Placeholder="Contraseña..."
-                    IsPassword="True"/>
+                    IsPassword="True"
+                    IsVisible="{Binding VerPassWord, Mode=TwoWay}"/>
                 <Label
                     FontAttributes="Bold"
-                    Text="Confirmar Contraseña :"/>
+                    Text="Confirmar Contraseña :"
+                    IsVisible="{Binding VerPassWord, Mode=TwoWay}"/>
                 <Entry
                     Text="{Binding ConfirmarContrasena, Mode=TwoWay}"
                     Placeholder="Confirmar..."
-                    IsPassword="True"/>
+                    IsPassword="True"
+                    IsVisible="{Binding VerPassWord, Mode=TwoWay}"/>
                 <Label
                     FontAttributes="Bold"
                     Text="Fecha de Nacimiento :"

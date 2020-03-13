@@ -14,6 +14,11 @@ namespace DomiMantApp.Globals
             Agregar=1,
             Modificar=2
         }
+        public enum TipoRegistroUsuarios { 
+            AgregarSuplidor=1,
+            AgregarCliente=2,
+            AgregarUsuario=3
+         }
         public enum OpcionesdeCuenta {
             Direcciones=1,
             Vehiculos=2,
@@ -25,6 +30,11 @@ namespace DomiMantApp.Globals
         public class TiposUsuario {
             public int ID { get; set; }
             public TipoUsuario TipoID { get; set; }
+            public string Descripcion { get; set; }
+        }
+        public class TipoRegistro {
+            public int ID { get; set; }
+            public TipoRegistroUsuarios TipoID { get; set; }
             public string Descripcion { get; set; }
         }
         public static Acciones Accion;
