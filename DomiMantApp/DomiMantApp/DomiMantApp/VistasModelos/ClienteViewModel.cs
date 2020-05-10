@@ -22,7 +22,7 @@ namespace DomiMantApp.VistasModelos
         private string apellidos;
         private string emails;
         private string cedula;
-        private Clientes clientes;
+        private Cliente clientes;
         #endregion
         #region Propiedades
         public string Nombres {

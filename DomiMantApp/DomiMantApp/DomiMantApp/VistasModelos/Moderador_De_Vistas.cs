@@ -6,7 +6,7 @@ namespace DomiMantApp.VistasModelos
 
     public class Moderador_De_Vistas
     {
-        #region Conbstruictor
+        #region Construictor
         public Moderador_De_Vistas()
         {            
             Instancia = this;            
@@ -69,7 +69,8 @@ namespace DomiMantApp.VistasModelos
             get;
             set;
         }
-        public ClientesViewmodel Clientes {
+        public ClientesViewModel Clientes
+        {
             get;
             set;
         }

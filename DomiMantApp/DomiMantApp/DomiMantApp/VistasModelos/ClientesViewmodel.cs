@@ -11,18 +11,18 @@ namespace DomiMantApp.VistasModelos
     using System.Text;
     using System.Windows.Input;
     using static Globals.Variables;
+    using static Globals.Funciones;
 
-    public class ClientesViewmodel : ModeradorBase
+    public class ClientesViewModel : ModeradorBase
     {
         #region Atibutos
         private ObservableCollection<ClientesItemsViewModel> _clientes;
-        private int id;
         private string fullname;
         private string codigo;
         private string cedula;
         private bool isrefresh;
         private string search;
-        private List<Clientes> clienteslst;
+        private List<Cliente> clienteslst;
         #endregion
         #region Propiedades
         public ObservableCollection<ClientesItemsViewModel> Clientes {
@@ -33,14 +33,14 @@ namespace DomiMantApp.VistasModelos
                 PasarValor(ref this._clientes, value);
             }
         }
-        public int ID {
-            get {
-                return this.id;
-            }
-            set {
-                PasarValor(ref this.id, value);
-            }
-        }
+        //public int ID {
+        //    get {
+        //        return this.id;
+        //    }
+        //    set {
+        //        PasarValor(ref this.id, value);
+        //    }
+        //}
         public string FullName {
             get {
                 return this.fullname;
@@ -49,7 +49,7 @@ namespace DomiMantApp.VistasModelos
                 PasarValor(ref this.fullname, value);
             }
         }
-        public string Codigo {
+        public string CodigoID {
             get {
                 return this.codigo;
             }
@@ -79,6 +79,7 @@ namespace DomiMantApp.VistasModelos
             }
             set {
                 PasarValor(ref this.search, value);
+                this.Buscar();
             }
         }
         #endregion
@@ -106,8 +107,8 @@ namespace DomiMantApp.VistasModelos
                 }
                 else {
                     this.Clientes = new ObservableCollection<ClientesItemsViewModel>(
-                        this.A_ClientesViewModel().Where(c => c.FullName.ToUpper().Contains(this.Search.ToUpper()) ||
-                            c.Cedula.Contains(this.Cedula))
+                        this.A_ClientesViewModel().Where(c => c.FullName.ToUpper().Contains(this.Search.ToUpper()) ||                                                      
+                            c.ClienteID.ToUpper().Contains(this.Search.ToUpper()))
                         );
                 }
                 this.IsReferesh = false;
@@ -130,9 +131,9 @@ namespace DomiMantApp.VistasModelos
             try
             {
                 this.IsReferesh = true;
-                using (var repo= new Repositorio<Clientes>(GetDbPath()))
+                using (var repo= new Repositorio<Cliente>(GetDbPath()))
                 {
-                    var _clientes = repo.Buscar(t => t.MecanicoID.Equals(UsuarioActual.Codigo)).ToList();
+                    var _clientes = (List<Cliente>)repo.Buscar(t => t.MecanicoID.Equals(UsuarioActual.Codigo)).ToList();
 
                     this.clienteslst = _clientes.OrderBy(cl => cl.Id).OrderBy(cn => cn.Nombres).ToList();
                     this.Clientes = new ObservableCollection<ClientesItemsViewModel>(this.A_ClientesViewModel());
@@ -148,30 +149,25 @@ namespace DomiMantApp.VistasModelos
                     "Ok");
             }
         }
-
-        private string GetDbPath()
+        private IEnumerable<ClientesItemsViewModel> A_ClientesViewModel()
         {
-            throw new NotImplementedException();
-        }
-
-        private IEnumerable<ClientesItemsViewModel> A_ClientesViewModel() {
             return this.clienteslst.Select(cl => new ClientesItemsViewModel(this)
             {
-                Id=cl.Id,
-                Codigo=cl.Codigo,
-                Nombres =cl.Nombres,
-                Apellidos=cl.Apellidos,
-                Cedula=cl.Cedula,
-                Emails=cl.Emails,
-                MecanicoID=cl.MecanicoID
+                Id = cl.Id,
+                Codigo = cl.Codigo,
+                Nombres = cl.Nombres,
+                Apellidos = cl.Apellidos,
+                Cedula = cl.Cedula,
+                Emails = cl.Emails,
+                MecanicoID = cl.MecanicoID
             });
         }
         #endregion
         #region Constructores
-        public ClientesViewmodel()
-        {
+        public ClientesViewModel()
+        {            
             this.CargarClientes();
         }
-        #endregion        
+        #endregion
     }
 }

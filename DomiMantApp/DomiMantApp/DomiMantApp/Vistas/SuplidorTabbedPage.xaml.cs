@@ -10,7 +10,7 @@ namespace DomiMantApp.Vistas
 	{
 		public SuplidorTabbedPage ()
 		{
-			InitializeComponent();
+			InitializeComponent();					
 		}
 	}
 }

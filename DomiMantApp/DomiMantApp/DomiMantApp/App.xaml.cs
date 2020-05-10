@@ -13,7 +13,7 @@ namespace DomiMantApp
         #region Constructor
         public App()
         {
-            InitializeComponent();
+            InitializeComponent();            
             MainPage = new SplashPage(); //new NavigationPage(new LoginPage());
         }
         #endregion

@@ -19,9 +19,9 @@ namespace DomiMantApp.Modelos
     }
     public class Suplidor : Usuarios
     {
-        public List<Clientes> Clientes { get; set; }
+        public List<Cliente> Clientes { get; set; }
     }
-    public class Cliente : Usuarios
+    public class Clientes : Usuarios
     {
         public List<Vehiculos> Vehiculos { get; set; }
         public List<Direccion_Contactos> Direcciones { get; set; }

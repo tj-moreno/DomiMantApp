@@ -54,9 +54,9 @@ namespace DomiMantApp.VistasModelos
         private DateTime fechanacimiento;
         private string confirmarcontrasena;
         private List<OpcioneCuentas> opcioneslst;
-        private ObservableCollection<OpcionesCuentasItemsViewModel> opcionescuentas;
+        private ObservableCollection<OpcionesCuentasItemsViewModel> opcionescuentas;        
         Usuarios Usuario;
-        Clientes Cliente;
+        Cliente Cliente;
         private bool verfecha;
         private bool vercedula;
         private bool verbtnborrarcuenta;
@@ -443,20 +443,6 @@ namespace DomiMantApp.VistasModelos
                         break;                                       
                     case Acciones.Modificar:
                         Usuario.Id = this.ID;
-                        //Usuario = new Usuarios
-                        //{
-                        //    Id = this.ID,
-                        //    Codigo = this.Codigo,
-                        //    Nombres = this.Nombres,
-                        //    Apellidos = this.Apellidos,
-                        //    Contrasena = this.Contrasena,
-                        //    Cedula = this.Cedula,
-                        //    Emails = this.Emails,
-                        //    EnSeccion = this.EnSeccion,
-                        //    Recordar = this.Recordar,
-                        //    Tipo = (int)this.Tipo.TipoID
-                        //};
-
                         repo.Actualizar(Usuario);
                         UsuarioActual = Usuario;
                         break;
@@ -465,9 +451,9 @@ namespace DomiMantApp.VistasModelos
         }
         private void GuardarRegCliente() {
 
-            using (var repo = new Repositorio<Clientes>(GetDbPath()))
+            using (var repo = new Repositorio<Cliente>(GetDbPath()))
             {
-                Cliente = new Clientes
+                Cliente = new Cliente
                 {
                     Codigo = this.Codigo,
                     Nombres = this.Nombres,
@@ -481,12 +467,14 @@ namespace DomiMantApp.VistasModelos
                 {
                     case Acciones.Agregar:
                         repo.Agregar(Cliente);
+                        Moderador_De_Vistas.ObtenerInstancia().Clientes.CargarClientes();
                         App.Navigator.PopAsync();
                         break;
 
                     case Acciones.Modificar:
                         Cliente.Id = this.id;
                         repo.Actualizar(Cliente);
+                        Moderador_De_Vistas.ObtenerInstancia().Clientes.CargarClientes();
                         App.Navigator.PopAsync();
                         break;
                 }

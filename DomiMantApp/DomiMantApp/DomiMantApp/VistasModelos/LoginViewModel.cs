@@ -37,22 +37,23 @@ namespace DomiMantApp.VistasModelos
                 PasarValor(ref this.usuario, value);
             }
         }
-        public string Clave {
-            get {
+        public string Clave
+        {
+            get
+            {
                 return this.clave;
             }
-            set {
+            set
+            {
                 PasarValor(ref this.clave, value);
             }
-        
-}
+        }
         public bool Indicador {
             get {
                 return this.indicardor;
             }
             set {
                 PasarValor(ref this.indicardor, value);
-
             }
         }
         public bool Recordar {
@@ -82,25 +83,26 @@ namespace DomiMantApp.VistasModelos
             try
             {
                 Indicador = true;
+
                 if (ValidarCuenta())
                 {
                     Moderador_De_Vistas.ObtenerInstancia().Registro = new RegistroViewModel((int)TipoRegistroUsuarios.AgregarUsuario);
                     Moderador_De_Vistas.ObtenerInstancia().CargarMenu();
                     Accion = Acciones.Modificar;
 
-                    using (var repoUsuario= new Repositorio<Usuarios>(GetDbPath()))
+                    using (var repoUsuario = new Repositorio<Usuarios>(GetDbPath()))
                     {
                         UsuarioActual.EnSeccion = true;
                         repoUsuario.Actualizar(UsuarioActual);
                     }
-                    switch (UsuarioActual.Tipo) 
+                    switch (UsuarioActual.Tipo)
                     {
-                        case (int)TipoUsuario.Cliente:                            
-                            App.Current.MainPage=new ClienteMasterPage();
+                        case (int)TipoUsuario.Cliente:
+                            App.Current.MainPage = new ClienteMasterPage();
                             break;
                         case (int)TipoUsuario.Suplidor:
-                            
-                            App.Current.MainPage= new MasterPage();
+                            Moderador_De_Vistas.ObtenerInstancia().Clientes = new ClientesViewModel();
+                            App.Current.MainPage = new MasterPage();
                             break;
                     }
                 }
@@ -111,7 +113,7 @@ namespace DomiMantApp.VistasModelos
                 Indicador = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "DomiMant Apps",
-                    $"Error : {ex.Message}",
+                    "Error :" + ex.Message,
                     "Ok");
             }
         }

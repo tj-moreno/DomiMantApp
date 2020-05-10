@@ -33,9 +33,14 @@ namespace DomiMantApp.Behavior
         }
 
         private static bool ValidarEmailAsyc(string value)
-        {            
-             System.Text.RegularExpressions.Regex automata = new System.Text.RegularExpressions.Regex(@"\A(\w+\.?\w*\@\w+\.)(com)\Z");
-             return automata.IsMatch(value);                       
+        {
+            if (!string.IsNullOrEmpty(value))
+            {
+                System.Text.RegularExpressions.Regex automata = new System.Text.RegularExpressions.Regex(@"\A(\w+\.?\w*\@\w+\.)(com)\Z");
+                return automata.IsMatch(value);                        
+            }
+
+            return false;
         }
     }
 }

@@ -16,10 +16,11 @@
             <ListView
                 HasUnevenRows="True"
                 IsPullToRefreshEnabled="True"
-                IsRefreshing="{Binding Isrefresh, Mode=TwoWay}"
-                ItemsSource="{Binding Cliente}"
-                SeparatorVisibility="None"
-                RefreshCommand="{Binding RefresCommand}">
+                IsRefreshing="{Binding IsReferesh, Mode=TwoWay}"
+                ItemsSource="{Binding Clientes}"              
+                RefreshCommand="{Binding RefreshCommand}"
+                SeparatorVisibility="Default">
+                
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -40,13 +41,13 @@
                                         VerticalOptions="Center">
                                         <Label
                                             FontAttributes="Bold"
-                                            FontSize="Medium"
-                                            Text="{Binding Id}"
+                                            FontSize="Small"
+                                            Text="{Binding Codigo}"
                                             TextColor="Black"/>
                                         <Label
                                             FontAttributes="Bold"
                                             FontSize="Medium"
-                                            Text="{Binding Fullname}"
+                                            Text="{Binding FullName}"
                                             TextColor="Black"/>
                                     </StackLayout>
                                     <Image
